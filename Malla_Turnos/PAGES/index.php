@@ -1,9 +1,9 @@
 <?php ?>
 <html>
 <head>
-<link type="text/css" href="../STYLES/bootstrap.min.css" />
-<link type="text/css" href="../STYLES/bootstrap-theme.min.css" />
-<script type="text/javascript" src="../SCRIPTS/bootstrap.min.js" />
+<link rel="stylesheet" href="../STYLES/bootstrap.min.css" />
+<link rel="stylesheet" href="../STYLES/bootstrap-theme.min.css" />
+<script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
 <title>Malla de Turnos</title>
 </head>
 <body>
