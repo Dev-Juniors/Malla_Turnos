@@ -36,7 +36,7 @@
 						<ul id="menu">
 							<li><a target="contenido" href="pages/gUsuarios.php">Gestionar
 									Usuarios</a></li>
-							<li><a target="contenido" href="PAGES/GenerarModelo.html">Generar Modelo</a></li>
+							<li><a target="contenido" href="PAGES/GenerarModelo.php">Generar Modelo</a></li>
 						</ul>
 					</div>
 				</div>
