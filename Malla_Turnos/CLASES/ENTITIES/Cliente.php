@@ -14,14 +14,6 @@ class Cliente {
 		$this->activo = 0;
 	}
 	
-	public function Cliente($id,$nombre,$idLineaServicio,$nit,$activo) {
-		$this->id = $id;
-		$this->nombre = $nombre;
-		$this->idLineaServicio = $idLineaServicio;
-		$this->nit = $nit;
-		$this->activo = $activo;
-	}
-	
 	public function setId($id){
 		$this->id = $id;
 	}
@@ -50,15 +42,15 @@ class Cliente {
 		$this->idLineaServicio = $idLineaServicio;
 	}
 	
-	public function getNit(){
+	public function getIdLineaServicio(){
 		return $this->idLineaServicio;
 	}
 	
-	public function setactivo($activo){
+	public function setActivo($activo){
 		$this->activo = $activo;
 	}
 	
-	public function isActivo(){
+	public function getActivo(){
 		return $this->activo;
 	}
 }
