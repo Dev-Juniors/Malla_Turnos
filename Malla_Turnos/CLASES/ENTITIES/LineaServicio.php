@@ -12,13 +12,6 @@ class LineaServicio {
 		$this->activo = 0;
 	}
 	
-	public function LineaServicio($id,$sigla,$descripcion,$activo) {
-		$this->id = $id;
-		$this->sigla = $sigla;
-		$this->descripcion = $descripcion;
-		$this->activo = $activo;
-	}
-	
 	public function setId($id){
 		$this->id = $id;
 	}
