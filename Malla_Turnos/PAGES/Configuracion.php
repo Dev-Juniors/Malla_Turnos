@@ -9,7 +9,6 @@
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/lds.js"></script>
-
 <style type="text/css">
 .required {
 	color: red;

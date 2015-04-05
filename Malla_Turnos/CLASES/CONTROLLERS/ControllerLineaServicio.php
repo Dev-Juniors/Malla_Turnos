@@ -9,33 +9,34 @@ if (isset ( $_GET )) {
 		$dao = new DaoLineaServicio ( $lineaServicio );
 		echo json_encode ( $dao->consultarForSelect () );
 	}
-} else {
-	if (isset ( $_POST ['btnGuardar'] )) {
-		$res = array (
-				'resultado' => '',
-				'id' => - 1 
-		);
-		
-		$lds = new LineaServicio ();
-		$lds->setSigla ( $_POST ['txtNombre'] );
-		$lds->setDescripcion ( $_POST ['txtDescrip'] );
-		
-		$dao = new DaoLineaServicio ( $lds );
-		
-		if (isset ( $_POST ['txtId'] )) {
-			$cliente->setId ( $_POST ['txtId'] );
-			$id = $dao->modificar ();
-		} else {
-			$id = $dao->guardar ();
-		}
-		if ($id < 0) {
-			$res ['resultado'] = 'Error';
-		} else {
-			$res ['id'] = $id;
-		}
-		
-		echo json_encode ( $res );
-	} else if (isset ( $_POST ['btnConsultar'] )) {
-	}
 }
+
+if (isset ( $_POST ['btnGuardar'] )) {
+	$res = array (
+			'resultado' => '',
+			'id' => - 1 
+	);
+	
+	$lds = new LineaServicio ();
+	$lds->setSigla ( $_POST ['txtNombre'] );
+	$lds->setDescripcion ( $_POST ['txtDescrip'] );
+	
+	$dao = new DaoLineaServicio ( $lds );
+	
+	if (isset ( $_POST ['txtId'] )) {
+		$cliente->setId ( $_POST ['txtId'] );
+		$id = $dao->modificar ();
+	} else {
+		$id = $dao->guardar ();
+	}
+	if ($id < 0) {
+		$res ['resultado'] = 'Error';
+	} else {
+		$res ['id'] = $id;
+	}
+	
+	echo json_encode ( $res );
+} else if (isset ( $_POST ['btnConsultar'] )) {
+}
+
 ?>
