@@ -3,6 +3,7 @@ var dataList = [];
 $(document).on('click', '#btnGuardar', function() {
 	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
 	$.post('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnGuardar", function(resp) {
+		alert(resp);
 		if (resp == '-1') {
 			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
 		} else {
