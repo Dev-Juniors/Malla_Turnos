@@ -31,7 +31,7 @@ class DaoLineaServicio {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
 		if ($conn != null) {
-			if ($stmt = $conn->prepare ( "INSERT INTO `linea_servicio` ( `sigla`, `descripcion`) VALUES (?,?)" )) {
+			if ($stmt = $conn->prepare ( "INSERT INTO linea_servicio ( sigla, descripcion) VALUES (?,?)" )) {
 				$stmt->bind_param ( "ss", $this->lineaServicio->getSigla (), $this->lineaServicio->getDescripcion () );
 				$stmt->execute ();
 				if ($stmt->affected_rows > 0) {
