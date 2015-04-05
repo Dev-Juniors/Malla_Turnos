@@ -81,7 +81,6 @@ class DaoLineaServicio {
 					$stmt->bind_param ( "s", $descripcion );
 				}
 				$stmt->execute ();
-				
 				$result = $stmt->get_result ();
 				$campos = array (
 						0 => 'id',
