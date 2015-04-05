@@ -18,7 +18,7 @@
 <body>
 	<form id="form_cliente"
 		style="width: 90%; margin: 0 auto; margin-top: 20px;">
-		<input type="hidden" id="txtId"	name="txtId" />
+		<input type="hidden" id="txtId" name="txtId" />
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Cliente</h3>
@@ -48,6 +48,12 @@
 								required>
 								<option value="">Cargando...</option>
 							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="checkbox">
+							<label> <input name="chkActivo" id="chkActivo" type="checkbox">Activo
+							</label>
 						</div>
 					</div>
 				</div>
@@ -166,8 +172,7 @@
 		<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 		<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 		<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
-		<br/>
-		<br/>
+		<br /> <br />
 		<div class="panel panel-primary">
 			<div class="panel-heading">Clientes registrados</div>
 			<div class="panel-body">
