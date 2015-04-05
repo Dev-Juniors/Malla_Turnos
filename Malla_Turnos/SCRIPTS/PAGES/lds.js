@@ -13,9 +13,9 @@ $(document).on('click', '#btnGuardar', function() {
 $(document).on('click', '#btnConsultar', function() {
 	msn_load("Buscando", "Estamos consultando la información, por favor espere.");
 	$.get('../CLASES/CONTROLLERS/ControllerLineaServicio.php', $("#form_lds").serialize() + "&btnConsultar", function(resp) {
-		alert(resp);
 		if (resp != "") {
 			var res = JSON.parse(resp);
+			alert(res);
 			cargarTabla(res);
 			$('.alert-warning').remove();
 		} else {
@@ -25,6 +25,30 @@ $(document).on('click', '#btnConsultar', function() {
 	});
 });
 
+$(document).on('click', '#btnLimpiar', function() {
+	limpiar();
+});
+$(function(){
+	cargarLineasServicio();
+});
+
+var cargarLineasServicio = function (){
+    $.get('../CLASES/CONTROLLERS/ControllerLineaServicio.php?forselect', function(list) {
+    	var res = JSON.parse(list);
+        if (res.length > 0) {
+            cargarSelect("#selLinServ", res);
+        }
+    });
+};
+
+var cargarSelect = function(idSelect, jsonArr) {
+    var html = "<option value=''>-- Seleccione --</option>";
+    for (var i = 0; i < jsonArr.length; i++) {
+        html = html + "<option value=" + jsonArr[i].id + ">" + jsonArr[i].sigla + "</option>";
+    }
+    $(idSelect).html('');
+    $(idSelect).html(html);
+};
 
 var cargarTabla = function(jsonData) {
     var fila, i = 1;
@@ -42,3 +66,19 @@ var cargarTabla = function(jsonData) {
         dataList.push(jsonData[i]);
     }
 };
+
+var detalle = function(pos) {
+    var lds = dataList[pos];
+    $("#txtId").val(lds.id);
+    $("#txtNombre").val(lds.nombre);
+    $("#txtDescrip").val(lds.descripcion);
+    $("#txtNombre").focus();
+};
+
+var limpiar = function() {
+    $("#txtId").val("");
+    $("#txtNombre").val("");
+    $("#txtDescrip").val("");
+    $("#txtNombre").focus();
+};
+

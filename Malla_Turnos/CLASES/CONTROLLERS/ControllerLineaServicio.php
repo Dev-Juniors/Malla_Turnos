@@ -12,6 +12,7 @@ if (isset ( $_GET ['btnConsultar'] )) {
 
 	$resp = $dao->consultar ();
 	$resp = $resp != null ? $resp : "";
+	echo $resp;
 	echo json_encode ( $resp );
 }
 
