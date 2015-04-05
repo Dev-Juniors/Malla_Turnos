@@ -21,7 +21,7 @@ if (isset ( $_POST ['btnGuardar'] )) {
 	$cliente->setNombre ( $_POST ['txtNombre'] );
 	$cliente->setNit ( $_POST ['txtNit'] );
 	$cliente->setIdLineaServicio ( $_POST ['selLinServ'] );
-	$cliente->setActivo ( 1 );
+	$cliente->setActivo ( isset($_POST['chkActivo']) ? 1 : 0 );
 	
 	$dao = new DaoCliente ( $cliente );
 	

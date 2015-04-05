@@ -26,7 +26,7 @@ $(document).on('click', '#btnConsultar', function() {
 		}
 	});
 });
-$(document).on('click', '#btnConsultar', function() {
+$(document).on('click', '#btnLimpiar', function() {
 	limpiar();
 });
 $(function(){
@@ -69,11 +69,12 @@ var cargarTabla = function(jsonData) {
 };
 
 var detalle = function(pos) {
-    var actividad = dataList[pos];
-    $("#txtId").val(actividad.id);
-    $("#txtNombre").val(actividad.nombre);
-    $("#txtNit").val(actividad.nit);
-    $("#selLinServ").val(actividad.id_linea_servicio);
+    var cliente = dataList[pos];
+    $("#txtId").val(cliente.id);
+    $("#txtNombre").val(cliente.nombre);
+    $("#txtNit").val(cliente.nit);
+    $("#selLinServ").val(cliente.id_linea_servicio);
+    $("#chkActivo").prop("checked", cliente.activo == "0" ? false : true );
     $("#txtNombre").focus();
 };
 
@@ -82,5 +83,6 @@ var limpiar = function() {
     $("#txtNombre").val("");
     $("#txtNit").val("");
     $("#selLinServ").val("");
+    $("#chkActivo").prop("checked", false);
     $("#txtNombre").focus();
 };
