@@ -1,3 +1,5 @@
+var dataList = [];
+
 $(document).on('click', '#btnGuardar', function() {
 	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
 	$.post('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnGuardar", function(resp) {
@@ -5,28 +7,26 @@ $(document).on('click', '#btnGuardar', function() {
 			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
 		} else {
 			msn('Listo!', 'La información se almacenanó correctamente');
+			limpiar();
+			$("#btnConsultar").click();
 		}
-//		if (resp == 'fecha') {
-//			msn('Error', 'Las fechas que nos diste no tienen un formato válido');
-//		} else if (resp == 'false') {
-//			msn('Upss', 'Lo sentimos, no fue posible almacenar la información');
-//		} else if (resp != '') {
-//			var id_act = $("#txt_id").val();
-//			if (id_act !== "") {
-//				msn('Listo!', 'La información se almacenanó correctamente');
-//			} else {
-//				$("#txt_id_actividad").val(resp);
-//				$("#txt_id_cib").val($("#selCib").val());
-//				cargarLugares($("#selCib").val(), false);
-//				$('#modal_horario').modal({
-//					show: true
-//				});
-//				$('.alert-warning').remove();
-//			}
-//			limpiar();
-//			consultarActividades();
-//		}
 	});
+});
+$(document).on('click', '#btnConsultar', function() {
+	msn_load("Buscando", "Estamos consultando la información, por favor espere.");
+	$.get('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnConsultar", function(resp) {
+		if (resp != "") {
+			var res = JSON.parse(resp);
+			cargarTabla(res);
+			$('.alert-warning').remove();
+		} else {
+			msn('Error', 'No hay clientes registrados con los datos ingresados');
+			$('#tbody').empty();
+		}
+	});
+});
+$(document).on('click', '#btnConsultar', function() {
+	limpiar();
 });
 $(function(){
 	cargarLineasServicio();
@@ -48,4 +48,38 @@ var cargarSelect = function(idSelect, jsonArr) {
     }
     $(idSelect).html('');
     $(idSelect).html(html);
+};
+
+var cargarTabla = function(jsonData) {
+    var fila, i = 1;
+    dataList = [];
+    $('#tbody').empty();
+    for (i = 0; i < jsonData.length; i++) {
+        fila = '<tr>'
+                + '<td>' + jsonData[i].id + '</td>'
+                + '<td>' + jsonData[i].nombre + '</td>'
+                + '<td>' + jsonData[i].nit + '</td>'
+                + '<td> <a onclick="detalle(' + i + ')"><button type="button" class="btn btn-default" aria-label="Editar">'
+                + '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>'
+                + '</tr>';
+        $('#tbody').append(fila);
+        dataList.push(jsonData[i]);
+    }
+};
+
+var detalle = function(pos) {
+    var actividad = dataList[pos];
+    $("#txtId").val(actividad.id);
+    $("#txtNombre").val(actividad.nombre);
+    $("#txtNit").val(actividad.nit);
+    $("#selLinServ").val(actividad.id_linea_servicio);
+    $("#txtNombre").focus();
+};
+
+var limpiar = function() {
+    $("#txtId").val("");
+    $("#txtNombre").val("");
+    $("#txtNit").val("");
+    $("#selLinServ").val("");
+    $("#txtNombre").focus();
 };
