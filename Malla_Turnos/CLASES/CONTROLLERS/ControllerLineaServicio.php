@@ -4,7 +4,7 @@ include_once '../DAOS/DaoLineaServicio.php';
 
 header ( 'Content-type: application/json; charset=utf-8' );
 
-if (isset ( $_POST ['btnConsultar'] )) {
+if (isset ( $_GET ['btnConsultar'] )) {
 	$lineaServicio = new LineaServicio ();
 	$lineaServicio->setSigla ( $_GET ['txtNombre'] != "" ? $_GET ['txtNombre'] : null );
 	$lineaServicio->setDescripcion ( $_GET ['txtDescrip'] != "" ? $_GET ['txtDescrip'] : null );

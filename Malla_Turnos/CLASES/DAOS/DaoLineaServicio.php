@@ -54,6 +54,7 @@ class DaoLineaServicio {
 	public function consultar() {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
+		$sigla="";
 		if ($conn != null) {
 			$sql = "SELECT * FROM linea_servicio ";
 			if ($this->lineaServicio->getSigla() != null || $this->lineaServicio->getDescripcion() != null) {
@@ -69,12 +70,12 @@ class DaoLineaServicio {
 			}
 			if ($stmt = $conn->prepare ( substr ( $sql, 0, strlen ( $sql )-5 ) )) {
 				if ($this->lineaServicio->getSigla() != null && $this->lineaServicio->getDescripcion() != null) {
-					$nombre = "%" . $this->lineaServicio->getSigla() . "%";
+					$sigla = "%" . $this->lineaServicio->getSigla() . "%";
 					$descripcion = "%" . $this->lineaServicio->getDescripcion() . "%";
-					$stmt->bind_param ( "ss", $nombre, $descripcion );
+					$stmt->bind_param ( "ss", $sigla, $descripcion );
 				} else if ($this->lineaServicio->getSigla() != null) {
-					$nombre = "%" . $this->lineaServicio->getSigla() . "%";
-					$stmt->bind_param ( "s", $nombre );
+					$sigla = "%" . $this->lineaServicio->getSigla() . "%";
+					$stmt->bind_param ( "s", $sigla );
 				} else if ($this->lineaServicio->getDescripcion() != null) {
 					$descripcion = "%" . $this->lineaServicio->getDescripcion() . "%";
 					$stmt->bind_param ( "s", $descripcion );
