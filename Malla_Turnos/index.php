@@ -37,6 +37,7 @@
 							<li><a target="contenido" href="pages/gUsuarios.php">Gestionar
 									Usuarios</a></li>
 							<li><a target="contenido" href="PAGES/GenerarModelo.php">Generar Modelo</a></li>
+							<li><a target="contenido" href="PAGES/Configuracion.html">Configuración</a></li>
 						</ul>
 					</div>
 				</div>
