@@ -8,6 +8,7 @@
 <script type="text/javascript" src="../SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
+<script type="text/javascript" src="../SCRIPTS/PAGES/lds.js"></script>
 
 <style type="text/css">
 .required {
@@ -16,7 +17,9 @@
 </style>
 </head>
 <body>
-	<form id="form_cliente" style="width: 90%; margin: 0 auto; margin-top: 20px;">
+	<form id="form_lds"
+		style="width: 90%; margin: 0 auto; margin-top: 20px;">
+		<input type="hidden" id="txtId" name="txtId">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Línea de Servicio</h3>
@@ -35,7 +38,8 @@
 					<div class="col-sm-12">
 						<div class="form-group">
 							<label for="txtDescrip">Descripción<span class="required">*</span></label>
-							<textarea id="txtDescrip" class="form-control" rows="6"></textarea>
+							<textarea id="txtDescrip" name="txtDescrip" class="form-control"
+								rows="6"></textarea>
 						</div>
 					</div>
 				</div>
