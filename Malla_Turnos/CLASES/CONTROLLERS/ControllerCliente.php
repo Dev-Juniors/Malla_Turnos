@@ -25,7 +25,7 @@ if (isset ( $_POST ['btnGuardar'] )) {
 	
 	$dao = new DaoCliente ( $cliente );
 	
-	if (isset ( $_POST ['txtId'] )) {
+	if ($_POST ['txtId'] != "") {
 		$cliente->setId ( $_POST ['txtId'] );
 		$id = $dao->modificar ();
 	} else {
