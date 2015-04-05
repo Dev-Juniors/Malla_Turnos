@@ -55,6 +55,19 @@ class DaoLineaServicio {
 		}
 		$conn->close ();
 	}
+	public function consultarForSelect() {
+		$connClass = new Conexion ();
+		$conn = $connClass->getConection ();
+		if ($conn != null) {
+			if ($stmt = $conn->prepare ( "SELECT id, sigla FROM linea_servicio" )) {
+				$stmt->execute ();
+				$result = $stmt->get_result();
+	
+				$campos = array(0 => 'id',1 => 'sigla');
+				return ConvertirJson::toJSON($campos,$result->fetch_all(MYSQLI_ASSOC));
+			}
+		}
+	}
 }
 
 ?>
