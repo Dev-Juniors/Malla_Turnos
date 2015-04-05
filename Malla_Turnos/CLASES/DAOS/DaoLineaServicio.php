@@ -7,26 +7,6 @@ class DaoLineaServicio {
 	public function DaoLineaServicio($lineaServicio) {
 		$this->lineaServicio = $lineaServicio;
 	}
-	public function consultar() {
-		$connClass = new Conexion ();
-		$conn = $connClass->getConection ();
-		if ($conn != null) {
-			if ($stmt = $conn->prepare ( "SELECT * FROM linea_servicio WHERE id=?" )) {
-				$id = $this->lineaServicio->getId ();
-				$stmt->bind_param ( "i", $id );
-				$stmt->execute ();
-				$result = $stmt->get_result ();
-				
-				$campos = array (
-						0 => 'id',
-						1 => 'sigla',
-						2 => 'descripcion' 
-				);
-				return ConvertirJson::toJSON ( $campos, $result->fetch_all ( MYSQLI_ASSOC ) );
-			}
-		}
-		$conn->close ();
-	}
 	public function guardar() {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
@@ -61,12 +41,56 @@ class DaoLineaServicio {
 		if ($conn != null) {
 			if ($stmt = $conn->prepare ( "SELECT id, sigla FROM linea_servicio" )) {
 				$stmt->execute ();
-				$result = $stmt->get_result();
-	
-				$campos = array(0 => 'id',1 => 'sigla');
-				return ConvertirJson::toJSON($campos,$result->fetch_all(MYSQLI_ASSOC));
+				$result = $stmt->get_result ();
+				
+				$campos = array (
+						0 => 'id',
+						1 => 'sigla' 
+				);
+				return ConvertirJson::toJSON ( $campos, $result->fetch_all ( MYSQLI_ASSOC ) );
 			}
 		}
+	}
+	public function consultar() {
+		$connClass = new Conexion ();
+		$conn = $connClass->getConection ();
+		if ($conn != null) {
+			$sql = "SELECT * FROM linea_servicio ";
+			if ($this->lineaServicio->getSigla() != null || $this->lineaServicio->getDescripcion() != null) {
+				$sql .= "WHERE ";
+				if ($this->lineaServicio->getSigla() != null) {
+					$sql .= "sigla LIKE ? AND ";
+				}
+				if ($this->lineaServicio->getDescripcion() != null) {
+					$sql .= "descripcion LIKE ? AND ";
+				}
+			} else {
+				$sql .= "$$$$$"; // Se agregar caracteres para el substring -5 del prepare
+			}
+			if ($stmt = $conn->prepare ( substr ( $sql, 0, strlen ( $sql )-5 ) )) {
+				if ($this->lineaServicio->getSigla() != null && $this->lineaServicio->getDescripcion() != null) {
+					$nombre = "%" . $this->lineaServicio->getSigla() . "%";
+					$descripcion = "%" . $this->lineaServicio->getDescripcion() . "%";
+					$stmt->bind_param ( "ss", $nombre, $descripcion );
+				} else if ($this->lineaServicio->getSigla() != null) {
+					$nombre = "%" . $this->lineaServicio->getSigla() . "%";
+					$stmt->bind_param ( "s", $nombre );
+				} else if ($this->lineaServicio->getDescripcion() != null) {
+					$descripcion = "%" . $this->lineaServicio->getDescripcion() . "%";
+					$stmt->bind_param ( "s", $descripcion );
+				}
+				$stmt->execute ();
+				
+				$result = $stmt->get_result ();
+				$campos = array (
+						0 => 'id',
+						1 => 'sigla',
+						2 => 'descripcion' 
+				);
+				return ConvertirJson::toJSON ( $campos, $result->fetch_all ( MYSQLI_ASSOC ) );
+			}
+		}
+		$conn->close ();
 	}
 }
 

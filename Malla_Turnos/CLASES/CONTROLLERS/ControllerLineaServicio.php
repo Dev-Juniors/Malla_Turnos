@@ -2,6 +2,19 @@
 include_once '../ENTITIES/LineaServicio.php';
 include_once '../DAOS/DaoLineaServicio.php';
 
+header ( 'Content-type: application/json; charset=utf-8' );
+
+if (isset ( $_POST ['btnConsultar'] )) {
+	$lineaServicio = new LineaServicio ();
+	$lineaServicio->setSigla ( $_GET ['txtNombre'] != "" ? $_GET ['txtNombre'] : null );
+	$lineaServicio->setDescripcion ( $_GET ['txtDescrip'] != "" ? $_GET ['txtDescrip'] : null );
+	$dao = new DaoLineaServicio ( $lineaServicio );
+
+	$resp = $dao->consultar ();
+	$resp = $resp != null ? $resp : "";
+	echo json_encode ( $resp );
+}
+
 if (isset ( $_GET ['forselect'] )) {
 	header ( 'Content-type: application/json; charset=utf-8' );
 	$lineaServicio = new LineaServicio ();
@@ -22,7 +35,6 @@ if (isset ( $_GET ['forselect'] )) {
 	}
 	
 	echo $id;
-} else if (isset ( $_POST ['btnConsultar'] )) {
 }
 
 ?>

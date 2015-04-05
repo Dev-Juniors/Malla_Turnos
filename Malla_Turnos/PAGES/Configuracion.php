@@ -45,6 +45,27 @@
 			</div>
 		</div>
 		<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
+		<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
+		<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
+		<br /> <br />
+		<div class="panel panel-primary">
+			<div class="panel-heading">Clientes registrados</div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-striped table-condensed">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nombre</th>
+								<th>Descripción</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody id="tbody"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</form>
 </body>
 </html>
