@@ -13,8 +13,14 @@ $(document).on('click', '#btnGuardar', function() {
 $(document).on('click', '#btnConsultar', function() {
 	msn_load("Buscando", "Estamos consultando la información, por favor espere.");
 	$.get('../CLASES/CONTROLLERS/ControllerLineaServicio.php', $("#form_lds").serialize() + "&btnConsultar", function(resp) {
+		var res;
 		if (resp != "") {
-			var res = JSON.parse(resp);
+			try {
+				res = JSON.parse(resp);
+			} catch (e) {
+				alert('errorrrogjofjs');
+			}
+			
 			alert(res);
 			cargarTabla(res);
 			$('.alert-warning').remove();
