@@ -2,9 +2,9 @@
 include_once '../ENTITIES/Cliente.php';
 include_once '../DAOS/DaoCliente.php';
 
-header ( 'Content-type: application/json; charset=utf-8' );
-
 if (isset ( $_GET ['btnConsultar'] )) {
+	header ( 'Content-type: application/json; charset=utf-8' );
+	
 	$cliente = new Cliente ();
 	$cliente->setNombre ( $_GET ['txtNombre'] != "" ? $_GET ['txtNombre'] : null );
 	$cliente->setNit ( $_GET ['txtNit'] != "" ? $_GET ['txtNit'] : null );
@@ -16,8 +16,9 @@ if (isset ( $_GET ['btnConsultar'] )) {
 }
 
 if (isset ( $_POST ['btnGuardar'] )) {
-	$cliente = new Cliente ();
+	header ( 'Content-type: text/plain; charset=utf-8' );
 	
+	$cliente = new Cliente ();
 	$cliente->setNombre ( $_POST ['txtNombre'] );
 	$cliente->setNit ( $_POST ['txtNit'] );
 	$cliente->setIdLineaServicio ( $_POST ['selLinServ'] );
