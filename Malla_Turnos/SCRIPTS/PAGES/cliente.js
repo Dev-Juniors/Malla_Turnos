@@ -2,13 +2,13 @@ var dataList = [];
 
 $(document).on('click', '#btnGuardar', function() {
 	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
-	$.post('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnGuardar", function(resp) {
+	$.post('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnGuardar=1", function(resp) {
 		if (resp == '-1') {
 			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
 		} else {
 			msn('Listo!', 'La información se almacenanó correctamente');
 			limpiar();
-			$("#btnConsultar").click();
+//			$("#btnConsultar").click();
 		}
 	});
 });

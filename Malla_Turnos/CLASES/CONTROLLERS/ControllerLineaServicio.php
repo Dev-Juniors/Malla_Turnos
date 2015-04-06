@@ -2,6 +2,7 @@
 include_once '../ENTITIES/LineaServicio.php';
 include_once '../DAOS/DaoLineaServicio.php';
 
+
 if (isset ( $_GET ['btnConsultar'] )) {
 	header ( 'Content-type: application/json; charset=utf-8' );
 	$lineaServicio = new LineaServicio ();
@@ -19,6 +20,7 @@ if (isset ( $_POST ['btnGuardar'] )) {
 	$lds = new LineaServicio ();
 	$lds->setSigla ( $_POST ['txtNombre'] );
 	$lds->setDescripcion ( $_POST ['txtDescrip'] );
+	
 	$id = - 1;
 	$dao = new DaoLineaServicio ( $lds );
 	if ($_POST ['txtId'] != "") {

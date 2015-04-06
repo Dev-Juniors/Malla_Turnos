@@ -2,7 +2,7 @@ var dataList = [];
 
 $(document).on('click', '#btnGuardar', function() {
 	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
-	$.post('../CLASES/CONTROLLERS/ControllerLineaServicio.php', $("#form_lds").serialize() + "&btnGuardar", function(resp) {
+	$.post('../CLASES/CONTROLLERS/ControllerLineaServicio.php', $("#form_lds").serialize() + "&btnGuardar=5", function(resp) {
 		if (resp == '-1') {
 			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
 		} else {
