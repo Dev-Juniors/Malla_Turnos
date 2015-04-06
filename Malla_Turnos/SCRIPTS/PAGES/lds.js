@@ -1,16 +1,25 @@
 var dataList = [];
 
+$(document).ready(function () {
+    $("#form_lds").validationEngine('attach', 
+        {
+    	promptPosition : "bottomLeft",
+    });
+});
+
 $(document).on('click', '#btnGuardar', function() {
-	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
-	$.post('../CLASES/CONTROLLERS/ControllerLineaServicio.php', $("#form_lds").serialize() + "&btnGuardar=5", function(resp) {
-		if (resp == '-1') {
-			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
-		} else {
-			msn('Listo!', 'La información se almacenanó correctamente');
-			limpiar();
-			$("#btnConsultar").click();
-		}
-	});
+	if ($("#form_lds").validationEngine('validate') != false) {
+		msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
+		$.post('../CLASES/CONTROLLERS/ControllerLineaServicio.php', $("#form_lds").serialize() + "&btnGuardar=5", function(resp) {
+			if (resp == '-1') {
+				msn('Error', 'Lo sentimos, no fue posible almacenar la información');
+			} else {
+				msn('Listo!', 'La información se almacenanó correctamente');
+				limpiar();
+				$("#btnConsultar").click();
+			}
+		});		
+	}
 });
 $(document).on('click', '#btnConsultar', function() {
 	msn_load("Buscando", "Estamos consultando la información, por favor espere.");
@@ -82,4 +91,5 @@ var limpiar = function() {
     $("#txtDescrip").val("");
     $("#txtNombre").focus();
 };
+
 

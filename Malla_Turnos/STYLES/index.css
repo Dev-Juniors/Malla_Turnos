@@ -3,5 +3,27 @@
 #contenido {
 	width: 100%;
 	height: 80%;
+	margin-top: 20px;
 	border-radius: 10px;
+}
+
+#logo{
+	padding:  15px 15px 15px 15px;
+}
+.title{
+	text-align:center;
+	padding:  15px 15px 15px 15px;
+}
+
+#headerDiv {
+	background-color: #FFFFFF;
+	background-image: url(../IMAGES/background.png);
+	background-repeat: repeat-x repeat-y;
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	border-color: #fff;
+	border: 1px solid rgba(153, 153, 153, 0.4);
+	border-radius: 0px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
 }
