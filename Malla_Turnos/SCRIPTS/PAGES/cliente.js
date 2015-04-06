@@ -25,6 +25,7 @@ $(document).on('click', '#btnConsultar', function() {
 		}
 	});
 });
+
 $(document).on('click', '#btnLimpiar', function() {
 	limpiar();
 });
