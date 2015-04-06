@@ -1,4 +1,5 @@
 var dataList = [];
+var msgCarga = true;
 
 $(document).on('click', '#btnGuardar', function() {
 	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
@@ -6,29 +7,36 @@ $(document).on('click', '#btnGuardar', function() {
 		if (resp == '-1') {
 			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
 		} else {
-			msn('Listo!', 'La información se almacenanó correctamente');
+			msn('Listo', 'La información se almacenanó correctamente');
 			limpiar();
-//			$("#btnConsultar").click();
+			msgCarga = false;
+			$("#btnConsultar").click();
 		}
 	});
 });
 $(document).on('click', '#btnConsultar', function() {
-	msn_load("Buscando", "Estamos consultando la información, por favor espere.");
+	if (msgCarga) {
+		msn_load("Buscando", "Estamos consultando la información, por favor espere.");
+	}
 	$.get('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnConsultar", function(resp) {
 		if (resp != "") {
 			var res = JSON.parse(resp);
 			cargarTabla(res);
-			$('.alert-warning').remove();
+			if (msgCarga) {
+				$('.alert-warning').remove();
+			}
 		} else {
 			msn('Error', 'No hay clientes registrados con los datos ingresados');
 			$('#tbody').empty();
 		}
+		msgCarga = true;
 	});
 });
 
 $(document).on('click', '#btnLimpiar', function() {
 	limpiar();
 });
+
 $(function(){
 	cargarLineasServicio();
 });
@@ -76,6 +84,7 @@ var detalle = function(pos) {
     $("#selLinServ").val(cliente.id_linea_servicio);
     $("#chkActivo").prop("checked", cliente.activo == "0" ? false : true );
     $("#txtNombre").focus();
+    $("#btnHorario").prop("disabled",false);
 };
 
 var limpiar = function() {
@@ -85,4 +94,5 @@ var limpiar = function() {
     $("#selLinServ").val("");
     $("#chkActivo").prop("checked", false);
     $("#txtNombre").focus();
+    $("#btnHorario").prop("disabled",true);
 };

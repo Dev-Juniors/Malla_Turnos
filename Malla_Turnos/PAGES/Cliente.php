@@ -58,6 +58,24 @@
 					</div>
 				</div>
 			</div>
+			<!-- Modal Horario -->
+<!-- <div class="modal fade" id="modalHorario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!--   <div class="modal-dialog modal-lg"> -->
+<!--     <div class="modal-content"> -->
+<!--       <div class="modal-header"> -->
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+<!--         <h4 class="modal-title" id="myModalLabel">Horarios Cliente</h4> -->
+<!--       </div> -->
+<!--       <div class="modal-body"> -->
+<!--         ... -->
+<!--       </div> -->
+<!--       <div class="modal-footer"> -->
+<!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+<!--         <button type="button" class="btn btn-primary" id="btnGuardarHorario">Save changes</button> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
 			<!-- 			<div class="panel panel-primary"> -->
 			<!-- 				<div class="panel-heading"> -->
 			<!-- 					<h3 class="panel-title">Horario</h3> -->
@@ -172,6 +190,8 @@
 		<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 		<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 		<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
+		<button type="button" id="btnHorario" class="btn btn-primary" disabled 
+			data-toggle="modal" data-target="#modalHorario">Horario</button>
 		<br /> <br />
 		<div class="panel panel-primary">
 			<div class="panel-heading">Clientes registrados</div>
