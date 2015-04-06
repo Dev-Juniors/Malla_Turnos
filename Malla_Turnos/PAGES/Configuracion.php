@@ -5,6 +5,7 @@
 <title>Línea de Servicio</title>
 <link rel="stylesheet" href="../STYLES/bootstrap.min.css" />
 <link rel="stylesheet" href="../STYLES/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
 <script type="text/javascript" src="../SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
