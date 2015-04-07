@@ -4,6 +4,7 @@
 <meta name="language" content="es-ES">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="expires" content="0">
+<link href="IMAGES/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 <link rel="stylesheet" href="STYLES/bootstrap.min.css" />
 <link rel="stylesheet" href="STYLES/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="STYLES/header.css" />
@@ -30,7 +31,7 @@
 			<div id="menu">
 				<ul class="nav nav-stacked">
 
-					<li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i>
+					<li class="active"><a href="#"><i class="glyphicon glyphicon-user"></i>
 							Gestionar Usuarios</a></li>
 					<li><a target="contenido" href="PAGES/GenerarModelo.php"><i
 							class="glyphicon glyphicon-calendar"></i> Generar Modelo</a></li>

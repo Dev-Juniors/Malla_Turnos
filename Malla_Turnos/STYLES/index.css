@@ -3,8 +3,10 @@
 #contenido {
 	width: 100%;
 	height: 80%;
-	margin-top: 20px;
+	max-height: 80%;
+	margin-top: 10px;
 	border-radius: 10px;
+	margin-left: 20px;
 }
 
 #logo{
