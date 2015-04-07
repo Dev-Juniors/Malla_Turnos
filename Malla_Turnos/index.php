@@ -4,7 +4,8 @@
 <meta name="language" content="es-ES">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="expires" content="0">
-<link href="IMAGES/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link href="IMAGES/favicon.ico" rel="shortcut icon"
+	type="image/vnd.microsoft.icon">
 <link rel="stylesheet" href="STYLES/bootstrap.min.css" />
 <link rel="stylesheet" href="STYLES/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="STYLES/header.css" />
@@ -22,7 +23,9 @@
 			</div>
 		</div>
 		<div class="col-xs-6 col-sm-10">
-			<h2 class="title"><strong>Malla de turnos</strong></h2>
+			<h2 class="title">
+				<strong>Malla de turnos</strong>
+			</h2>
 		</div>
 	</div>
 

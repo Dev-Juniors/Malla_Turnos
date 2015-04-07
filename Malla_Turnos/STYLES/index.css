@@ -1,6 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 #contenido {
+	float: right;
 	width: 100%;
 	background-color: #FFFFFF;
 	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 1),
