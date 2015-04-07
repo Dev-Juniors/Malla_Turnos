@@ -1,18 +1,27 @@
 var dataList = [];
 var msgCarga = true;
 
+$(document).ready(function () {
+    $("#form_cliente").validationEngine('attach', 
+        {
+    	promptPosition : "bottomLeft",
+    });
+});
+
 $(document).on('click', '#btnGuardar', function() {
-	msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
-	$.post('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnGuardar=1", function(resp) {
-		if (resp == '-1') {
-			msn('Error', 'Lo sentimos, no fue posible almacenar la información');
-		} else {
-			msn('Listo', 'La información se almacenanó correctamente');
-			limpiar();
-			msgCarga = false;
-			$("#btnConsultar").click();
-		}
-	});
+	if ($("#form_cliente").validationEngine('validate') != false) {
+		msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
+		$.post('../CLASES/CONTROLLERS/ControllerCliente.php', $("#form_cliente").serialize() + "&btnGuardar=1", function(resp) {
+			if (resp == '-1') {
+				msn('Error', 'Lo sentimos, no fue posible almacenar la información');
+			} else {
+				msn('Listo', 'La información se almacenanó correctamente');
+				limpiar();
+				msgCarga = false;
+				$("#btnConsultar").click();
+			}
+		});
+	}
 });
 $(document).on('click', '#btnConsultar', function() {
 	if (msgCarga) {
