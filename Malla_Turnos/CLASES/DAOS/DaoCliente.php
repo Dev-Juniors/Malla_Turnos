@@ -78,5 +78,22 @@ class DaoCliente {
 		}
 		$conn->close ();
 	}
+	public function consultarForSelect( $idLinea ) {
+		$connClass = new Conexion ();
+		$conn = $connClass->getConection ();
+		if ($conn != null) {
+			if ($stmt = $conn->prepare ( "SELECT `id`, `nombre` FROM `cliente` WHERE `id_linea_servicio` ? AND `activo` = 1" )) {
+				$stmt->bind_param ( "i", $idLinea);
+				$stmt->execute ();
+				$result = $stmt->get_result ();
+				
+				$campos = array (
+						0 => 'id',
+						1 => 'nombre' 
+				);
+				return ConvertirJson::toJSON ( $campos, $result->fetch_all ( MYSQLI_ASSOC ) );
+			}
+		}
+	}
 }
 ?>

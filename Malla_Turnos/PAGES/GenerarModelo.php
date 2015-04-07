@@ -13,7 +13,6 @@
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/generarModelo.js"></script>
-
 <style type="text/css">
 .required {
 	color: red;
@@ -40,8 +39,6 @@
 									class="required">*</span></label> <select
 									class="form-control validate[required]" id="selLinServ"
 									required>
-									<option>SIE</option>
-									<option>SEG</option>
 								</select>
 							</div>
 						</div>
@@ -49,8 +46,7 @@
 							<div class="form-group">
 								<label for="selCliente">Cliente <span class="required">*</span></label>
 								<select class="form-control validate[required]" id="selCliente"
-									required>
-									<option>Nutresa</option>
+									disabled="disabled" required>
 								</select>
 							</div>
 						</div>
@@ -92,7 +88,8 @@
 											<div class="input-group-addon">
 												Desde <span class="required">*</span>
 											</div>
-											<input type="date" class="form-control validate[required,past[#txtHasta]]"
+											<input type="date"
+												class="form-control validate[required,past[#txtHasta]]"
 												id="txtDesde" name="txtDesde" required>
 											<!-- 										<div class="input-group-addon">.00</div> -->
 										</div>
@@ -104,7 +101,8 @@
 											<div class="input-group-addon">
 												Hasta <span class="required">*</span>
 											</div>
-											<input type="date" class="form-control validate[required,future[#txtDesde]]"
+											<input type="date"
+												class="form-control validate[required,future[#txtDesde]]"
 												id="txtHasta" name="txtHasta" required>
 											<!-- 										<div class="input-group-addon">.00</div> -->
 										</div>
@@ -131,8 +129,9 @@
 									<div class="input-group-addon">
 										Cantidad de analistas <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
-										id="txtCantAnalistas" name="txtCantAnalistas" required>
+									<input type="number"
+										class="form-control validate[required,custom[integer],min[1]]"
+										min="1" id="txtCantAnalistas" name="txtCantAnalistas" required>
 								</div>
 							</div>
 						</div>
@@ -142,8 +141,9 @@
 									<div class="input-group-addon">
 										Cantidad de Backups <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
-										id="txtCantBackups" name="txtCantBackups" required>
+									<input type="number"
+										class="form-control validate[required,custom[integer],min[1]]"
+										min="1" id="txtCantBackups" name="txtCantBackups" required>
 								</div>
 							</div>
 						</div>
@@ -155,8 +155,10 @@
 									<div class="input-group-addon">
 										Horas de semanales <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
-										id="txtHorasSem" name="txtHorasSem" value="46" required>
+									<input type="number"
+										class="form-control validate[required,custom[integer],min[1]]"
+										min="1" id="txtHorasSem" name="txtHorasSem" value="46"
+										required>
 								</div>
 							</div>
 						</div>
@@ -166,8 +168,10 @@
 									<div class="input-group-addon">
 										Horas al diarias <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
-										id="txtHorasDia" name="txtHorasDia" value="10" required>
+									<input type="number"
+										class="form-control validate[required,custom[integer],min[1]]"
+										min="1" id="txtHorasDia" name="txtHorasDia" value="10"
+										required>
 								</div>
 							</div>
 						</div>
