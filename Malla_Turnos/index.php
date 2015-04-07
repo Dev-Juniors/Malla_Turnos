@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="col-xs-6 col-sm-10">
-			<h1 class="title">Malla de turnos</h1>
+			<h2 class="title"><strong>Malla de turnos</strong></h2>
 		</div>
 	</div>
 
@@ -42,7 +42,8 @@
 							<li><a target="contenido" href="PAGES/LineaServicio.php"><i
 									class="glyphicon glyphicon-menu-hamburger"></i> Línea de
 									Servicio</a></li>
-							<li><a href="#">Views</a></li>
+							<li><a target="contenido" href="PAGES/Cliente.php"><i
+									class="glyphicon glyphicon-globe"></i> Clientes</a></li>
 						</ul></li>
 				</ul>
 			</div>
