@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="STYLES/index.css" />
 <script type="text/javascript" src="SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="SCRIPTS/bootstrap.min.js"></script>
-<title>Malla de Turnos</title>
+<title>Malla de Turnos - Flag Soluciones</title>
 </head>
 <body>
 	<div id="headerDiv" class="row show-grid">
