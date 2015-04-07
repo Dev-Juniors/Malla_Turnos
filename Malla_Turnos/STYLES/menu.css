@@ -1,84 +1,5 @@
-/* #medium { */
-/* 	width: 100%; */
-/* } */
-
-/* #mediumContent { */
-/* 	width: 90%; */
-/* 	margin: 0 auto; */
-/* } */
-
-/* #sideBarMenu { */
-/* 	background-color: #FFFFFF; */
-/* 	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 1), */
-/* 		rgba(236, 236, 236, 1)); */
-/* 	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 1), */
-/* 		rgba(236, 236, 236, 1)); */
-/* 	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 1), */
-/* 		rgba(236, 236, 236, 1)); */
-/* 	background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 1), */
-/* 		rgba(236, 236, 236, 1)); */
-/* 	background-image: linear-gradient(top, rgba(255, 255, 255, 1), */
-/* 		rgba(236, 236, 236, 1)); */
-/* 	-image-background-position: left bottom; */
-/* 	background-repeat: repeat-x; */
-/* 	float: left; */
-/* 	height: 95%; */
-/* 	border: 1px solid rgba(153, 153, 153, 0.4); */
-/* 	border-radius: 5px; */
-/* 	-webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, .2); */
-/* 	box-shadow: 1px 2px 2px rgba(0, 0, 0, .2); */
-/* 	padding: 0 20px 0 20px; */
-/* 	overflow-y: auto; */
-/* } */
-
-/* #sideBarMenu h2 { */
-/* 	font-size: 1.5em; */
-/* 	padding-top: 10px; */
-/* 	text-align: center; */
-/* } */
-
-/* #menu { */
-/* 	margin-top: 20px; */
-/* 	display: table; */
-/* 	width: 100%; */
-/* 	padding-left: 10px; */
-/* } */
-
-/* #menu li { */
-/* 	display: table-row; */
-/* 	width: 100%; */
-/* } */
-
-/* #menu a { */
-/* 	padding-left: 5px; */
-/* 	padding-right: 10px; */
-/* 	display: table-cell; */
-/* 	height: 50px; */
-/* 	vertical-align: middle; */
-/* 	cursor: pointer; */
-/* 	text-decoration: none; */
-/* 	color: #000; */
-/* 	-webkit-transition: background .400s ease-in; */
-/* 	-moz-transition: background .400s ease-in; */
-/* 	-o-transition: background .400s ease-in; */
-/* 	-ms-transition: background .400s ease-in; */
-/* 	transition: background .400s ease-in; */
-/* } */
-
-/* #menu a:hover { */
-/* 	color: rgb(33, 33, 206); */
-/* 	background-color: #FFFFFF; */
-/* 	border: 1px solid rgba(153, 153, 153, 0.3); */
-/* 	border-radius: 5px; */
-/* 	background-position: left bottom; */
-/* 	background-repeat: repeat-x; */
-/* } */
-
-/* #menu .hijo { */
-/* 	padding-left: 40px; */
-/* } */
 #menu {
-	background-color: #30426A;
+	background-color: #C7C8CB;
 	display: block;
 	width: 100%;
 	margin-top: 20px;
@@ -94,7 +15,7 @@ i {
 }
 
 .nav>li>a {
-	color: #C7C8CB;
+	color: #30426A;
 }
 
 /* count indicator near icons */

@@ -27,34 +27,19 @@
 
 	<div class="row show-grid">
 		<div class="col-xs-6 col-sm-2">
-			<!-- 			<div id="medium"> -->
-			<!-- 				<div id="mediumContent"> -->
-			<!-- Start SideBarMenu -->
-			<!-- 					<div id="sideBarMenu"> -->
-			<!-- 						<h2>Menú</h2> -->
-			<!-- 						<ul id="menu"> -->
-			<!-- 							<li><a target="contenido" href="pages/gUsuarios.php">Gestionar -->
-			<!-- 									Usuarios</a></li> -->
-			<!-- 							<li><a target="contenido" href="PAGES/GenerarModelo.php">Generar Modelo</a></li> -->
-			<!-- 							<li><a target="contenido" href="PAGES/Configuracion.html">Configuración</a></li> -->
-			<!-- 						</ul> -->
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
-			<!-- Main -->
 			<div id="menu">
 				<ul class="nav nav-stacked">
 
 					<li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i>
 							Gestionar Usuarios</a></li>
-					<li><a target="contenido" href="PAGES/GenerarModelo.php"><i class="glyphicon glyphicon-calendar"></i>
-							Generar Modelo</a></li>
+					<li><a target="contenido" href="PAGES/GenerarModelo.php"><i
+							class="glyphicon glyphicon-calendar"></i> Generar Modelo</a></li>
 					<li class="nav-header"><a href="#" data-toggle="collapse"
 						data-target="#config"> Configuración <i
 							class="glyphicon glyphicon-chevron-right"></i></a>
 						<ul class="nav nav-stacked collapse" id="config">
-							<li><a target="contenido" href="PAGES/LineaServicio.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Línea de
+							<li><a target="contenido" href="PAGES/LineaServicio.php"><i
+									class="glyphicon glyphicon-menu-hamburger"></i> Línea de
 									Servicio</a></li>
 							<li><a href="#">Views</a></li>
 						</ul></li>
