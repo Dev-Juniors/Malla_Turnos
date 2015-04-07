@@ -5,8 +5,15 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../STYLES/bootstrap.min.css" />
 <link rel="stylesheet" href="../STYLES/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
 <script type="text/javascript" src="../SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="../SCRIPTS/ValidationEngine/jquery.validationEngine-es.js"></script>
+<script type="text/javascript"
+	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="../SCRIPTS/PAGES/generarModelo.js"></script>
+
 <style type="text/css">
 .required {
 	color: red;
@@ -19,7 +26,8 @@
 			<strong>Generación Modelo</strong>
 		</h2>
 		<hr>
-		<form style="width: 90%; margin: 0 auto; margin-top: 20px;">
+		<form id="form_GenMod"
+			style="width: 90%; margin: 0 auto; margin-top: 20px;">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Datos del cliente</h3>
@@ -29,8 +37,9 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="selLinServ">Línea de Servicios <span
-									class="required">*</span></label> <select class="form-control"
-									id="selLinServ" required>
+									class="required">*</span></label> <select
+									class="form-control validate[required]" id="selLinServ"
+									required>
 									<option>SIE</option>
 									<option>SEG</option>
 								</select>
@@ -39,7 +48,8 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="selCliente">Cliente <span class="required">*</span></label>
-								<select class="form-control" id="selCliente" required>
+								<select class="form-control validate[required]" id="selCliente"
+									required>
 									<option>Nutresa</option>
 								</select>
 							</div>
@@ -82,8 +92,8 @@
 											<div class="input-group-addon">
 												Desde <span class="required">*</span>
 											</div>
-											<input type="date" class="form-control" id="txtDesde"
-												name="txtDesde" required>
+											<input type="date" class="form-control validate[required,past[#txtHasta]]"
+												id="txtDesde" name="txtDesde" required>
 											<!-- 										<div class="input-group-addon">.00</div> -->
 										</div>
 									</div>
@@ -94,8 +104,8 @@
 											<div class="input-group-addon">
 												Hasta <span class="required">*</span>
 											</div>
-											<input type="date" class="form-control" id="txtHasta"
-												name="txtHasta" required>
+											<input type="date" class="form-control validate[required,future[#txtDesde]]"
+												id="txtHasta" name="txtHasta" required>
 											<!-- 										<div class="input-group-addon">.00</div> -->
 										</div>
 									</div>
@@ -121,8 +131,8 @@
 									<div class="input-group-addon">
 										Cantidad de analistas <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control" id="txtCantAnalistas"
-										name="txtCantAnalistas" required>
+									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
+										id="txtCantAnalistas" name="txtCantAnalistas" required>
 								</div>
 							</div>
 						</div>
@@ -132,8 +142,8 @@
 									<div class="input-group-addon">
 										Cantidad de Backups <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control" id="txtCantBackups"
-										name="txtCantBackups" required>
+									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
+										id="txtCantBackups" name="txtCantBackups" required>
 								</div>
 							</div>
 						</div>
@@ -145,8 +155,8 @@
 									<div class="input-group-addon">
 										Horas de semanales <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control" id="txtHorasSem"
-										name="txtHorasSem" value="46" required>
+									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
+										id="txtHorasSem" name="txtHorasSem" value="46" required>
 								</div>
 							</div>
 						</div>
@@ -156,8 +166,8 @@
 									<div class="input-group-addon">
 										Horas al diarias <span class="required">*</span>
 									</div>
-									<input type="number" class="form-control" id="txtHorasDia"
-										name="txtHorasDia" value="10" required>
+									<input type="number" class="form-control validate[required,custom[integer],min[1]]" min="1"
+										id="txtHorasDia" name="txtHorasDia" value="10" required>
 								</div>
 							</div>
 						</div>
