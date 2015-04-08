@@ -97,8 +97,8 @@
 														<div class="input-group-addon">
 															Hora inicio <span class="required">*</span>
 														</div>
-														<input type="time" class="form-control validate[required]" id="txtInicio"
-															name="txtInicio" required>
+														<input type="time" class="form-control validate[required]"
+															id="txtInicio" name="txtInicio" required>
 													</div>
 												</div>
 											</div>
@@ -108,8 +108,8 @@
 														<div class="input-group-addon">
 															Hora Fin <span class="required">*</span>
 														</div>
-														<input type="time" class="form-control validate[required]" id="txtFin"
-															name="txtFin" required>
+														<input type="time" class="form-control validate[required]"
+															id="txtFin" name="txtFin" required>
 													</div>
 												</div>
 											</div>
@@ -118,49 +118,56 @@
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Lunes">Lunes</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Lunes">Lunes</label>
 													</div>
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Martes">Martes</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Martes">Martes</label>
 													</div>
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Miércoles">Miércoles</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Miércoles">Miércoles</label>
 													</div>
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Jueves">Jueves</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Jueves">Jueves</label>
 													</div>
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Viernes">Viernes</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Viernes">Viernes</label>
 													</div>
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Sábado">Sábado</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Sábado">Sábado</label>
 													</div>
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
 													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]" type="checkbox" name="group1" id="Domingo">Domingo</label>
+														<label><input class="validate[minCheckbox[1]]"
+															type="checkbox" name="group1" id="Domingo">Domingo</label>
 													</div>
 												</div>
 											</div>
@@ -209,8 +216,8 @@
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
-			<button type="button" id="btnHorario" class="btn btn-primary"
-				disabled data-toggle="modal" data-target="#modalHorario">Horario</button>
+<!-- 			<button type="button" id="btnHorario" class="btn btn-primary" -->
+<!-- 				disabled data-toggle="modal" data-target="#modalHorario">Horario</button> -->
 			<br /> <br />
 			<div class="panel panel-primary">
 				<div class="panel-heading">Clientes registrados</div>
@@ -230,6 +237,7 @@
 					</div>
 				</div>
 			</div>
+			<button type="button" id="btnNext" class="btn btn-primary"><i class="glyphicon glyphicon-triangle-right"></i> Siguiente</button>
 		</form>
 		<hr>
 	</div>
