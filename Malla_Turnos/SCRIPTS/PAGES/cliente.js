@@ -5,6 +5,8 @@ $(document).ready(function () {
     $("#form_cliente").validationEngine('attach', 
         {
     	promptPosition : "bottomLeft",
+		autoHidePrompt : true,
+		autoHideDelay : 4000,
     });
 });
 

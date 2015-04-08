@@ -4,6 +4,8 @@ $(document).ready(function () {
     $("#form_lds").validationEngine('attach', 
         {
     	promptPosition : "bottomLeft",
+		autoHidePrompt : true,
+		autoHideDelay : 4000,
     });
 });
 
