@@ -83,13 +83,13 @@ class DaoCliente {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
 		if ($conn != null) {
-			if ($stmt = $conn->prepare ( "SELECT id, nombre FROM cliente WHERE id_linea_servicio = ? AND activo =  ?" )) {
-				$stmt->bind_param ( "ii", $id , 1 );
+			if ($stmt = $conn->prepare ( "SELECT id, nombre as 'sigla' FROM cliente WHERE id_linea_servicio = ? AND activo = 1" )) {
+				$stmt->bind_param ( "i", $id);
 				$stmt->execute ();
 				$result = $stmt->get_result ();
 				$campos = array (
 						0 => 'id',
-						1 => 'nombre' 
+						1 => 'sigla' // El campo es nombre, pero se le pone sigla para reutilizar la función cargarSelect 
 				);
 				return ConvertirJson::toJSON ( $campos, $result->fetch_all ( MYSQLI_ASSOC ) );
 			}
