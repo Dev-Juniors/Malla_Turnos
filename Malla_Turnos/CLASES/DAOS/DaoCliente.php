@@ -79,14 +79,14 @@ class DaoCliente {
 		$conn->close ();
 	}
 	public function consultarForSelect( $idLinea ) {
+		$id = $idLinea;
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
 		if ($conn != null) {
-			if ($stmt = $conn->prepare ( "SELECT `id`, `nombre` FROM `cliente` WHERE `id_linea_servicio` ? AND `activo` = 1" )) {
-				$stmt->bind_param ( "i", $idLinea);
+			if ($stmt = $conn->prepare ( "SELECT id, nombre FROM cliente WHERE id_linea_servicio = ? AND activo =  ?" )) {
+				$stmt->bind_param ( "ii", $id , 1 );
 				$stmt->execute ();
 				$result = $stmt->get_result ();
-				
 				$campos = array (
 						0 => 'id',
 						1 => 'nombre' 

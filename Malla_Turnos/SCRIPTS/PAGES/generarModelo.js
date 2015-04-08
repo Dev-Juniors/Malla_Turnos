@@ -34,11 +34,15 @@ $(document).on('change', '#selLinServ', function() {
 });
 
 var cargarClientes = function (idLinea){
-    $.get('../CLASES/CONTROLLERS/ControllerCliente.php?forselect&idLinea='+idLinea, function(list) {
-    	alert(list);
-    	var res = JSON.parse(list);
-        if (res.length > 0) {
-            cargarSelect("#selCliente", res);
-        }
-    });
+	try {
+	    $.get('../CLASES/CONTROLLERS/ControllerCliente.php?forselect&idLinea='+idLinea, function(list) {
+	    	var res = JSON.parse(list);
+	        if (res.length > 0) {
+	            cargarSelect("#selCliente", res);
+	        }
+	    });
+	} catch (e) {
+		alert("sdfsdf");
+	}
+
 };

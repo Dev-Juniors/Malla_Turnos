@@ -41,7 +41,8 @@ if (isset ( $_GET ['forselect'] )) {
 	$cliente = new Cliente ();
 	if (isset ( $_GET ['idLinea'] )) {
 		$dao = new DaoCliente ( $cliente );
-		echo json_encode ( $dao->consultarForSelect ($_GET ['idLinea']) );
+		$id = $_GET ['idLinea'];
+		echo json_encode ( $dao->consultarForSelect ( $id ) );
 	}
 }
 ?>
