@@ -9,7 +9,6 @@ $(document).ready(function () {
 		autoHideDelay : 4000,
     });
 });
-
 $(document).on('click', '#btnGuardar', function() {
 	if ($("#form_cliente").validationEngine('validate') != false) {
 		msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
@@ -107,3 +106,9 @@ var limpiar = function() {
     $("#txtNombre").focus();
     $("#btnHorario").prop("disabled",true);
 };
+
+$(document).on('click', '#linkNext', function() {
+	if ($("#form_cliente").validationEngine('validate') != false) {
+		
+	}
+});

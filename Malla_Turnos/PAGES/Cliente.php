@@ -43,7 +43,7 @@
 								<label for="selLinServ">Nombre <span class="required">*</span></label>
 								<input type="text" class="form-control validate[required]"
 									id="txtNombre" placeholder="Escriba el nombre del cliente"
-									name="txtNombre" required />
+									name="txtNombre" />
 							</div>
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 								<label for="selLinServ">NIT <span class="required">*</span></label>
 								<input type="text" class="form-control validate[required]"
 									id="txtNit" placeholder="Escriba el NIT correspondiente"
-									name="txtNit" required />
+									name="txtNit" />
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -61,7 +61,7 @@
 								<label for="selLinServ">Línea de Servicios <span
 									class="required">*</span></label> <select
 									class="form-control validate[required]" id="selLinServ"
-									name="selLinServ" required>
+									name="selLinServ">
 									<option value="">Cargando...</option>
 								</select>
 							</div>
@@ -240,9 +240,10 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" id="btnNext" class="btn btn-primary">
-				<i class="glyphicon glyphicon-triangle-right"></i> Siguiente
-			</button>
+			<a id="linkNext" href="HorarioCliente.html"><button type="button"
+					class="btn btn-primary">
+					<i class="glyphicon glyphicon-triangle-right"></i> Siguiente
+				</button></a>
 		</form>
 		<hr>
 	</div>

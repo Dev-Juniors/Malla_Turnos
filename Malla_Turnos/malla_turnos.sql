@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-04-2015 a las 01:08:19
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Tiempo de generación: 08-04-2015 a las 16:00:02
+-- Versión del servidor: 5.6.20
+-- Versión de PHP: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `malla_turnos`
 --
-CREATE DATABASE IF NOT EXISTS `malla_turnos` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `malla_turnos`;
 
 -- --------------------------------------------------------
 
@@ -28,14 +26,13 @@ USE `malla_turnos`;
 -- Estructura de tabla para la tabla `cliente`
 --
 
-DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
 `id` int(11) NOT NULL,
   `activo` int(1) NOT NULL,
   `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `nit` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `id_linea_servicio` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -43,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 INSERT INTO `cliente` (`id`, `activo`, `nombre`, `nit`, `id_linea_servicio`) VALUES
 (1, 1, 'Nutresa', '45878455', 1),
-(2, 1, 'Nutresa', '34634563', 1);
+(2, 1, 'Nutresa', '65156156', 11);
 
 -- --------------------------------------------------------
 
@@ -51,7 +48,6 @@ INSERT INTO `cliente` (`id`, `activo`, `nombre`, `nit`, `id_linea_servicio`) VAL
 -- Estructura de tabla para la tabla `concurrencia_malla`
 --
 
-DROP TABLE IF EXISTS `concurrencia_malla`;
 CREATE TABLE IF NOT EXISTS `concurrencia_malla` (
 `id` int(11) NOT NULL,
   `id_modelo_malla` int(11) NOT NULL,
@@ -59,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `concurrencia_malla` (
   `hora_inicio` time NOT NULL,
   `hora_fin` time NOT NULL,
   `cant_analistas` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -67,14 +63,13 @@ CREATE TABLE IF NOT EXISTS `concurrencia_malla` (
 -- Estructura de tabla para la tabla `detalle_horario`
 --
 
-DROP TABLE IF EXISTS `detalle_horario`;
 CREATE TABLE IF NOT EXISTS `detalle_horario` (
 `id` int(11) NOT NULL,
   `id_horario_cliente` int(11) NOT NULL,
   `dia` varchar(7) COLLATE utf8_spanish_ci NOT NULL,
   `hora_inicio` time NOT NULL,
   `hora_fin` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -82,14 +77,13 @@ CREATE TABLE IF NOT EXISTS `detalle_horario` (
 -- Estructura de tabla para la tabla `horario_cliente`
 --
 
-DROP TABLE IF EXISTS `horario_cliente`;
 CREATE TABLE IF NOT EXISTS `horario_cliente` (
 `id` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
   `activo` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -97,19 +91,20 @@ CREATE TABLE IF NOT EXISTS `horario_cliente` (
 -- Estructura de tabla para la tabla `linea_servicio`
 --
 
-DROP TABLE IF EXISTS `linea_servicio`;
 CREATE TABLE IF NOT EXISTS `linea_servicio` (
 `id` int(11) NOT NULL,
   `sigla` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `linea_servicio`
 --
 
 INSERT INTO `linea_servicio` (`id`, `sigla`, `descripcion`) VALUES
-(1, 'DSI', 'Desarrollo Informático Especializado');
+(1, 'DSI', 'Desarrollo Informatico Especializado'),
+(3, 'SIE', 'Soporte Informático'),
+(11, 'SEG', 'Seguridad');
 
 -- --------------------------------------------------------
 
@@ -117,7 +112,6 @@ INSERT INTO `linea_servicio` (`id`, `sigla`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `log_estado_mh`
 --
 
-DROP TABLE IF EXISTS `log_estado_mh`;
 CREATE TABLE IF NOT EXISTS `log_estado_mh` (
   `id` int(11) NOT NULL,
   `id_malla_horario` int(11) NOT NULL,
@@ -132,7 +126,6 @@ CREATE TABLE IF NOT EXISTS `log_estado_mh` (
 -- Estructura de tabla para la tabla `modelo_malla`
 --
 
-DROP TABLE IF EXISTS `modelo_malla`;
 CREATE TABLE IF NOT EXISTS `modelo_malla` (
 `id` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
@@ -143,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `modelo_malla` (
   `hora_inicio_almuerzo` time NOT NULL,
   `hora_fin_almuerzo` time NOT NULL,
   `activo` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -151,12 +144,11 @@ CREATE TABLE IF NOT EXISTS `modelo_malla` (
 -- Estructura de tabla para la tabla `turnos_malla`
 --
 
-DROP TABLE IF EXISTS `turnos_malla`;
 CREATE TABLE IF NOT EXISTS `turnos_malla` (
 `id` int(11) NOT NULL,
   `hora_inicio` time NOT NULL,
   `hora_fin` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Tabla de apoyo para horarios por defecto';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Tabla de apoyo para horarios por defecto' AUTO_INCREMENT=1 ;
 
 --
 -- Índices para tablas volcadas
@@ -212,7 +204,7 @@ ALTER TABLE `turnos_malla`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `concurrencia_malla`
 --
@@ -232,7 +224,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `linea_servicio`
 --
 ALTER TABLE `linea_servicio`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `modelo_malla`
 --
