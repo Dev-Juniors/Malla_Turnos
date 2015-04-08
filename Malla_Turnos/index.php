@@ -46,7 +46,7 @@
 								<li><a target="contenido" href="PAGES/LineaServicio.php"><i
 										class="glyphicon glyphicon-menu-hamburger"></i> Línea de
 										Servicio</a></li>
-								<li><a target="contenido" href="PAGES/Cliente.php"><i
+								<li><a target="contenido"  href="PAGES/Cliente.php"><i
 										class="glyphicon glyphicon-globe"></i> Clientes</a></li>
 							</ul></li>
 					</ul>

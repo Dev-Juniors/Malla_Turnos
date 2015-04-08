@@ -8,12 +8,15 @@
 <link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
 <script type="text/javascript" src="../SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../STYLES/animsition.min.css" />
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine-es.js"></script>
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/lds.js"></script>
+<script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
+<script type="text/javascript" src="../SCRIPTS/animsitionActive.js"></script>
 <style type="text/css">
 .required {
 	color: red;
@@ -21,7 +24,7 @@
 </style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid animsition">
 		<h2 class="title">
 			<strong>Líneas de Servicio</strong>
 		</h2>
@@ -38,8 +41,9 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label for="txtNombre">Denominación <span class="required">*</span></label>
-								<input type="text" class="form-control validate[required]" placeholder="Nombre de la línea de servicio"
-									id="txtNombre" name="txtNombre" required />
+								<input type="text" class="form-control validate[required]"
+									placeholder="Nombre de la línea de servicio" id="txtNombre"
+									name="txtNombre" required />
 							</div>
 						</div>
 					</div>
@@ -47,7 +51,8 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label for="txtDescrip">Descripción<span class="required">*</span></label>
-								<textarea id="txtDescrip" name="txtDescrip" placeholder="Escriba una descripción de la línea"
+								<textarea id="txtDescrip" name="txtDescrip"
+									placeholder="Escriba una descripción de la línea"
 									class="form-control validate[required]" rows="6"></textarea>
 							</div>
 						</div>

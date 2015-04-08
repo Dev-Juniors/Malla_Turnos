@@ -9,11 +9,14 @@
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
+<link rel="stylesheet" href="../STYLES/animsition.min.css" />
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine-es.js"></script>
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/cliente.js"></script>
+<script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
+<script type="text/javascript" src="../SCRIPTS/animsitionActive.js"></script>
 <style type="text/css">
 .required {
 	color: red;
@@ -21,7 +24,7 @@
 </style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid animsition">
 		<h2 class="title">
 			<strong>Clientes</strong>
 		</h2>
@@ -216,8 +219,8 @@
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
-<!-- 			<button type="button" id="btnHorario" class="btn btn-primary" -->
-<!-- 				disabled data-toggle="modal" data-target="#modalHorario">Horario</button> -->
+			<!-- 			<button type="button" id="btnHorario" class="btn btn-primary" -->
+			<!-- 				disabled data-toggle="modal" data-target="#modalHorario">Horario</button> -->
 			<br /> <br />
 			<div class="panel panel-primary">
 				<div class="panel-heading">Clientes registrados</div>
@@ -237,7 +240,9 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" id="btnNext" class="btn btn-primary"><i class="glyphicon glyphicon-triangle-right"></i> Siguiente</button>
+			<button type="button" id="btnNext" class="btn btn-primary">
+				<i class="glyphicon glyphicon-triangle-right"></i> Siguiente
+			</button>
 		</form>
 		<hr>
 	</div>
