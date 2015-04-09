@@ -240,9 +240,9 @@
 					</div>
 				</div>
 			</div>
-			<a id="linkNext" href="HorarioCliente.html"><button type="button"
+			<a id="linkNext" href="HorarioCliente.php"><button type="button"
 					class="btn btn-primary">
-					<i class="glyphicon glyphicon-triangle-right"></i> Siguiente
+					<i class="glyphicon glyphicon-triangle-right"></i> Ver horario
 				</button></a>
 		</form>
 		<hr>
