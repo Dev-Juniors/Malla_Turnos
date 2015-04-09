@@ -219,8 +219,7 @@
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
-			<!-- 			<button type="button" id="btnHorario" class="btn btn-primary" -->
-			<!-- 				disabled data-toggle="modal" data-target="#modalHorario">Horario</button> -->
+			<button type="button" id="btnHorario" class="btn btn-primary">Ver Horario</button>
 			<br /> <br />
 			<div class="panel panel-primary">
 				<div class="panel-heading">Clientes registrados</div>
@@ -240,9 +239,9 @@
 					</div>
 				</div>
 			</div>
-			<a id="linkNext" href="HorarioCliente.php"><button type="button"
+			<a id="linkNext"><button type="button" id="linkNext"
 					class="btn btn-primary">
-					<i class="glyphicon glyphicon-triangle-right"></i> Ver horario
+					<i class="glyphicon glyphicon-triangle-right"></i> Siguiente
 				</button></a>
 		</form>
 		<hr>
