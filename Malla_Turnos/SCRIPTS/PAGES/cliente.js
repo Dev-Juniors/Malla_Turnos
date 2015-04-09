@@ -2,6 +2,7 @@ var dataList = [];
 var msgCarga = true;
 
 $(document).ready(function () {
+	$("#txtNombre").focus();
     $("#form_cliente").validationEngine('attach', 
         {
     	promptPosition : "bottomLeft",
@@ -107,8 +108,8 @@ var limpiar = function() {
     $("#btnHorario").prop("disabled",true);
 };
 
-$(document).on('click', '#linkNext', function() {
+$(document).on('click', '#btnHorario', function() {
 	if ($("#form_cliente").validationEngine('validate') != false) {
-		
+		location.href = './HorarioCliente.php?cliente=' + $("#txtId").val();
 	}
 });

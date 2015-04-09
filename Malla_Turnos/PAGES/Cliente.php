@@ -74,147 +74,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- Modal Horario -->
-				<div class="modal fade" id="modalHorario" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Horarios Cliente</h4>
-							</div>
-							<div class="modal-body">
-								<div class="panel panel-primary">
-									<div class="panel-heading">
-										<h3 class="panel-title">Horario</h3>
-									</div>
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-sm-6">
-												<div class="form-group">
-													<div class="input-group">
-														<div class="input-group-addon">
-															Hora inicio <span class="required">*</span>
-														</div>
-														<input type="time" class="form-control validate[required]"
-															id="txtInicio" name="txtInicio" required>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group">
-													<div class="input-group">
-														<div class="input-group-addon">
-															Hora Fin <span class="required">*</span>
-														</div>
-														<input type="time" class="form-control validate[required]"
-															id="txtFin" name="txtFin" required>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Lunes">Lunes</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Martes">Martes</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Miércoles">Miércoles</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Jueves">Jueves</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Viernes">Viernes</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Sábado">Sábado</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Domingo">Domingo</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-4"></div>
-											<div class="col-sm-4">
-												<button type="button" class="btn btn-primary btn-block">Agregar</button>
-											</div>
-											<div class="col-sm-4"></div>
-										</div>
-										<br>
-										<div class="table-responsive">
-											<table class="table table-hover table-bordered">
-												<thead>
-													<tr>
-														<th>Días</th>
-														<th>Inicio</th>
-														<th>Fin</th>
-														<th>Acciones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Lunes, Martes</td>
-														<td>08:00:00</td>
-														<td>18:00:00</td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-primary"
-									id="btnGuardarHorario">Guardar Horario</button>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
@@ -239,10 +98,10 @@
 					</div>
 				</div>
 			</div>
-			<a id="linkNext"><button type="button" id="linkNext"
-					class="btn btn-primary">
-					<i class="glyphicon glyphicon-triangle-right"></i> Siguiente
-				</button></a>
+<!-- 			<a id="linkNext"><button type="button" id="linkNext" -->
+<!-- 					class="btn btn-primary"> -->
+<!-- 					<i class="glyphicon glyphicon-triangle-right"></i> Siguiente -->
+<!-- 				</button></a> -->
 		</form>
 		<hr>
 	</div>

@@ -1,6 +1,7 @@
 var dataList = [];
 
 $(document).ready(function () {
+	$("#txtNombre").focus();
     $("#form_lds").validationEngine('attach', 
         {
     	promptPosition : "bottomLeft",

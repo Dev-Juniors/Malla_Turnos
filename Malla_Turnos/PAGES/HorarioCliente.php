@@ -14,6 +14,7 @@
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine-es.js"></script>
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="../SCRIPTS/PAGES/horarioCliente.js"></script>
 <script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/animsitionActive.js"></script>
 <style type="text/css">
@@ -31,6 +32,7 @@
 		<form id="form_HrCliente"
 			style="width: 90%; margin: 0 auto; margin-top: 20px;">
 			<input type="hidden" id="txtId" name="txtId" />
+			<input type="hidden" id="txtIdCliente" name="txtIdCliente" value="<?php echo $_GET['cliente'];?>" />
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Vigencia Horario</h3>
@@ -138,7 +140,7 @@
 												<div class="form-group">
 													<div class="checkbox">
 														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Miércoles">Miércoles</label>
+															type="checkbox" name="group1" id="Miercoles">Miércoles</label>
 													</div>
 												</div>
 											</div>
@@ -215,14 +217,12 @@
 						</div>
 					</div>
 				</div>
-				<!-- Modal Horario -->
-
 			</div>
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
 			<button type="button" id="btnHorario" class="btn btn-primary"
-				disabled data-toggle="modal" data-target="#modalHorario">Detalle
+				 data-toggle="modal" data-target="#modalHorario">Detalle
 				Horario</button>
 			<br /> <br />
 			<div class="panel panel-primary">
