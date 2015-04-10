@@ -31,8 +31,9 @@
 		<hr>
 		<form id="form_HrCliente"
 			style="width: 90%; margin: 0 auto; margin-top: 20px;">
-			<input type="hidden" id="txtId" name="txtId" />
-			<input type="hidden" id="txtIdCliente" name="txtIdCliente" value="<?php echo $_GET['cliente'];?>" />
+			<input type="hidden" id="txtId" name="txtId" /> <input type="hidden"
+				id="txtIdCliente" name="txtIdCliente"
+				value="<?php echo $_GET['cliente'];?>" />
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Vigencia Horario</h3>
@@ -64,163 +65,12 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="checkbox">
-								<label> <input name="chkActivo" id="chkActivo"
-									type="checkbox">Activo
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Modal Horario -->
-				<div class="modal fade" id="modalHorario" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Horarios Cliente</h4>
-							</div>
-							<div class="modal-body">
-								<div class="panel panel-primary">
-									<div class="panel-heading">
-										<h3 class="panel-title">Horario</h3>
-									</div>
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-sm-6">
-												<div class="form-group">
-													<div class="input-group">
-														<div class="input-group-addon">
-															Hora inicio <span class="required">*</span>
-														</div>
-														<input type="time" class="form-control validate[required]"
-															id="txtInicio" name="txtInicio" required>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group">
-													<div class="input-group">
-														<div class="input-group-addon">
-															Hora Fin <span class="required">*</span>
-														</div>
-														<input type="time" class="form-control validate[required]"
-															id="txtFin" name="txtFin" required>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Lunes">Lunes</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Martes">Martes</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Miercoles">Miércoles</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Jueves">Jueves</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Viernes">Viernes</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Sábado">Sábado</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-3">
-												<div class="form-group">
-													<div class="checkbox">
-														<label><input class="validate[minCheckbox[1]]"
-															type="checkbox" name="group1" id="Domingo">Domingo</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-4"></div>
-											<div class="col-sm-4">
-												<button type="button" class="btn btn-primary btn-block">Agregar</button>
-											</div>
-											<div class="col-sm-4"></div>
-										</div>
-										<br>
-										<div class="table-responsive">
-											<table class="table table-hover table-bordered">
-												<thead>
-													<tr>
-														<th>Días</th>
-														<th>Inicio</th>
-														<th>Fin</th>
-														<th>Acciones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Lunes, Martes</td>
-														<td>08:00:00</td>
-														<td>18:00:00</td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-primary"
-									id="btnGuardarHorario">Guardar Horario</button>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
 			<button type="button" id="btnHorario" class="btn btn-primary"
-				 data-toggle="modal" data-target="#modalHorario">Detalle
-				Horario</button>
+				data-toggle="modal" data-target="#modalHorario">Detalle Horario</button>
 			<br /> <br />
 			<div class="panel panel-primary">
 				<div class="panel-heading">Horarios registrados</div>
@@ -246,6 +96,150 @@
 				class="glyphicon glyphicon-triangle-right"></i> Siguiente</a>
 		</form>
 		<hr>
+
+
+		<!-- Modal Horario -->
+		<div class="modal fade" id="modalHorario" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Horarios Cliente</h4>
+					</div>
+					<div class="modal-body">
+						<form id="form_modal">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Horario</h3>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-group-addon">
+														Hora inicio <span class="required">*</span>
+													</div>
+													<input type="time" class="form-control validate[required]"
+														id="txtInicio" name="txtInicio" value="02:00">
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-group-addon">
+														Hora Fin <span class="required">*</span>
+													</div>
+													<input type="time" class="form-control validate[required]"
+														id="txtFin" name="txtFin" value="03:00">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia1">Lunes</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia2">Martes</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia3">Miércoles</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia4">Jueves</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia5">Viernes</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia6">Sábado</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<div class="checkbox">
+													<label><input class="validate[minCheckbox[1]]"
+														type="checkbox" name="group1" id="dia7">Domingo</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-4"></div>
+										<div class="col-sm-4">
+											<button type="button" id="btnAgregar"
+												class="btn btn-primary btn-block">Agregar</button>
+										</div>
+										<div class="col-sm-4"></div>
+									</div>
+									<br>
+									<div class="table-responsive">
+										<table class="table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th>Días</th>
+													<th>Inicio</th>
+													<th>Fin</th>
+													<th>Acciones</th>
+												</tr>
+											</thead>
+											<tbody id="tbodyHr">
+												<tr>
+													<td>Lunes, Martes</td>
+													<td>08:00:00</td>
+													<td>18:00:00</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary"
+							id="btnGuardarHorario">Guardar Horario</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

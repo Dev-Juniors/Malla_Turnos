@@ -3,12 +3,12 @@ var msgCarga = true;
 
 $(document).ready(function () {
 	$("#txtNombre").focus();
-    $("#form_cliente").validationEngine('attach', 
-        {
-    	promptPosition : "bottomLeft",
+	$("#form_cliente").validationEngine('attach', 
+			{
+		promptPosition : "bottomLeft",
 		autoHidePrompt : true,
 		autoHideDelay : 4000,
-    });
+			});
 });
 $(document).on('click', '#btnGuardar', function() {
 	if ($("#form_cliente").validationEngine('validate') != false) {
