@@ -181,7 +181,7 @@
 					</div>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Siguiente</button>
+			<button type="button" class="btn btn-primary">Siguiente</button>
 			<hr>
 		</form>
 	</div>
