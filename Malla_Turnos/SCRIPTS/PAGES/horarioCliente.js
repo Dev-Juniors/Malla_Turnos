@@ -40,30 +40,30 @@ var cargarSelect = function(idSelect, jsonArr) {
 	$(idSelect).html(html);
 };
 
-var cargarTabla = function(jsonData) {
-	var fila, i = 1;
-	dataList = [];
-	$('#tbody').empty();
-	for (i = 0; i < jsonData.length; i++) {
-		fila = '<tr>'
-				+ '<td>'
-				+ jsonData[i].id
-				+ '</td>'
-				+ '<td>'
-				+ jsonData[i].nombre
-				+ '</td>'
-				+ '<td>'
-				+ jsonData[i].nit
-				+ '</td>'
-				+ '<td> <a onclick="detalle('
-				+ i
-				+ ')"><button type="button" class="btn btn-default" aria-label="Editar">'
-				+ '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>'
-				+ '</tr>';
-		$('#tbody').append(fila);
-		dataList.push(jsonData[i]);
-	}
-};
+//var cargarTabla = function(jsonData) {
+//	var fila, i = 1;
+//	dataList = [];
+//	$('#tbody').empty();
+//	for (i = 0; i < jsonData.length; i++) {
+//		fila = '<tr>'
+//				+ '<td>'
+//				+ jsonData[i].id
+//				+ '</td>'
+//				+ '<td>'
+//				+ jsonData[i].nombre
+//				+ '</td>'
+//				+ '<td>'
+//				+ jsonData[i].nit
+//				+ '</td>'
+//				+ '<td> <a onclick="detalle('
+//				+ i
+//				+ ')"><button type="button" class="btn btn-default" aria-label="Editar">'
+//				+ '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>'
+//				+ '</tr>';
+//		$('#tbody').append(fila);
+//		dataList.push(jsonData[i]);
+//	}
+//};
 
 var consultarHorario = function() {
 
