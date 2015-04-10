@@ -48,7 +48,6 @@
 									<input type="date"
 										class="form-control validate[required,past[#txtHasta]]"
 										id="txtDesde" name="txtDesde" required>
-									<!-- 										<div class="input-group-addon">.00</div> -->
 								</div>
 							</div>
 						</div>
@@ -61,7 +60,6 @@
 									<input type="date"
 										class="form-control validate[required,future[#txtDesde]]"
 										id="txtHasta" name="txtHasta" required>
-									<!-- 										<div class="input-group-addon">.00</div> -->
 								</div>
 							</div>
 						</div>
@@ -219,7 +217,6 @@
 				</div>
 			</div>
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
-			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
 			<button type="button" id="btnHorario" class="btn btn-primary"
 				 data-toggle="modal" data-target="#modalHorario">Detalle
@@ -233,10 +230,9 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-									<th>Cliente</th>
 									<th>Desde</th>
 									<th>Hasta</th>
-									<th>Acciones</th>
+									<th>Editar</th>
 								</tr>
 							</thead>
 							<tbody id="tbody"></tbody>

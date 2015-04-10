@@ -90,7 +90,7 @@
 									<th>Id</th>
 									<th>Nombre</th>
 									<th>Nit</th>
-									<th>Acciones</th>
+									<th>Editar</th>
 								</tr>
 							</thead>
 							<tbody id="tbody"></tbody>

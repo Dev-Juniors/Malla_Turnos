@@ -26,6 +26,7 @@ $(document).on('click', '#btnGuardar', function() {
 	}
 });
 $(document).on('click', '#btnConsultar', function() {
+	$('#form_cliente').validationEngine('hideAll');
 	if (msgCarga) {
 		msn_load("Buscando", "Estamos consultando la información, por favor espere.");
 	}
@@ -45,6 +46,7 @@ $(document).on('click', '#btnConsultar', function() {
 });
 
 $(document).on('click', '#btnLimpiar', function() {
+	$('#form_cliente').validationEngine('hideAll');
 	limpiar();
 });
 
@@ -88,6 +90,7 @@ var cargarTabla = function(jsonData) {
 };
 
 var detalle = function(pos) {
+	$('#form_cliente').validationEngine('hideAll');
     var cliente = dataList[pos];
     $("#txtId").val(cliente.id);
     $("#txtNombre").val(cliente.nombre);
