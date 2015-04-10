@@ -1,7 +1,7 @@
 var dataList = [];
 var dataListDetalle = [];
 var arrayHorarios = new Array();
-
+var contChecks = 0;
 var msgCarga = true;
 
 $(document).ready(function() {
@@ -96,11 +96,15 @@ $(document).on('click', '#btnAgregar', function() {
 		var dias = "";
 		var fin = document.getElementById("txtFin").value;
 		var inicio = document.getElementById("txtInicio").value;
+		validarChecks();
 		objHorario.inicio = inicio;
 		objHorario.fin = fin;
 		for (var int = 1; int <= 7; int++) {
 			if (document.getElementById('dia' + int).checked) {
 				dias += "1";
+				$("#dia"+int).attr('disabled','disabled');
+				$("#dia"+int).removeAttr('checked');
+				contChecks += 1;
 			} else {
 				dias += "0";
 			}
@@ -117,7 +121,6 @@ var cargarTabla = function(jsonData) {
     dataList = [];
     $('#tbodyHr').empty();
     for (i = 0; i < jsonData.length; i++) {
-    	
         fila = '<tr>'
                 + '<td>' + getDias(jsonData[i].dias) + '</td>'
                 + '<td>' + jsonData[i].inicio + '</td>'
@@ -147,6 +150,12 @@ function getDias(dias){
 			}
 	    }
 	return cadena;
+}
+
+function validarChecks(){
+	if (contChecks == 6) {
+		$("#btnAgregar").attr('disabled','disabled');
+	}
 }
 
 // $(document).on('click', '#btnGuardarHorario', function() {

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../STYLES/bootstrap-theme.min.css" />
 <script type="text/javascript" src="../SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../STYLES/horarioCliente.css" />
 <link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
 <link rel="stylesheet" href="../STYLES/animsition.min.css" />
@@ -208,7 +209,7 @@
 										<div class="col-sm-4"></div>
 									</div>
 									<br>
-									<div class="table-responsive">
+									<div id="tbHorario" class="table-responsive">
 										<table class="table table-hover table-bordered">
 											<thead>
 												<tr>
@@ -219,12 +220,7 @@
 												</tr>
 											</thead>
 											<tbody id="tbodyHr">
-												<tr>
-													<td>Lunes, Martes</td>
-													<td>08:00:00</td>
-													<td>18:00:00</td>
-													<td></td>
-												</tr>
+												
 											</tbody>
 										</table>
 									</div>
