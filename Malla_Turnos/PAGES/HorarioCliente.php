@@ -205,6 +205,8 @@
 										<div class="col-sm-4">
 											<button type="button" id="btnAgregar"
 												class="btn btn-primary btn-block">Agregar</button>
+											<button type="button" id="btnEditarHr"
+												class="btn btn-primary btn-block">Editar</button>
 										</div>
 										<div class="col-sm-4"></div>
 									</div>
