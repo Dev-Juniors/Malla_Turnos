@@ -13,6 +13,7 @@
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine-es.js"></script>
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
+	<script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/generarModelo.js"></script>
 <script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/animsitionActive.js"></script>
@@ -60,60 +61,56 @@
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
-								<table class="table table-hover">
+								<table class="table table-hover" id="tablaHorarios">
 									<thead>
 										<tr>
-											<th>Días</th>
-											<th>Inicio</th>
-											<th>Fin</th>
+											<th>Id</th>
+											<th>Fecha Inicio</th>
+											<th>Fecha Fin</th>
+											<th>Seleccionar</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>Lunes</td>
-											<td>08:00:00</td>
-											<td>18:00:00</td>
-										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Vigencia</h3>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<div class="input-group">
-											<div class="input-group-addon">
-												Desde <span class="required">*</span>
-											</div>
-											<input type="date"
-												class="form-control validate[required,past[#txtHasta]]"
-												id="txtDesde" name="txtDesde" required>
+<!-- 					<div class="panel panel-default"> -->
+<!-- 						<div class="panel-heading"> -->
+<!-- 							<h3 class="panel-title">Vigencia</h3> -->
+<!-- 						</div> -->
+<!-- 						<div class="panel-body"> -->
+<!-- 							<div class="row"> -->
+<!-- 								<div class="col-sm-6"> -->
+<!-- 									<div class="form-group"> -->
+<!-- 										<div class="input-group"> -->
+<!-- 											<div class="input-group-addon"> -->
+<!-- 												Desde <span class="required">*</span> -->
+<!-- 											</div> -->
+<!-- 											<input type="date" -->
+<!-- 												class="form-control validate[required,past[#txtHasta]]" -->
+<!-- 												id="txtDesde" name="txtDesde" required> -->
 											<!-- 										<div class="input-group-addon">.00</div> -->
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<div class="input-group">
-											<div class="input-group-addon">
-												Hasta <span class="required">*</span>
-											</div>
-											<input type="date"
-												class="form-control validate[required,future[#txtDesde]]"
-												id="txtHasta" name="txtHasta" required>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="col-sm-6"> -->
+<!-- 									<div class="form-group"> -->
+<!-- 										<div class="input-group"> -->
+<!-- 											<div class="input-group-addon"> -->
+<!-- 												Hasta <span class="required">*</span> -->
+<!-- 											</div> -->
+<!-- 											<input type="date" -->
+<!-- 												class="form-control validate[required,future[#txtDesde]]" -->
+<!-- 												id="txtHasta" name="txtHasta" required> -->
 											<!-- 										<div class="input-group-addon">.00</div> -->
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<!-- 				<div class="checkbox"> -->
 					<!-- 					<label> <input type="checkbox"> Check me out -->
 					<!-- 					</label> -->

@@ -67,14 +67,26 @@ var cargarClientes = function(idLinea) {
 };
 
 var cargarHorarioCliente = function(idCliente) {
-	$.get('../CLASES/CONTROLLERS/ControllerCliente.php?consultar&idCliente=' + idCliente, function(list) {
+	msn_load("Trabajando", "Estamos consultado los horarios del cliente, por favor espere.");
+	$.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?consultar&idCliente=' + idCliente, function(list) {
 		try {
-			var res = JSON.parse(list);
-			if (res.length > 0) {
-				cargarTabla(res);
+			if (list != "") {
+				var res = JSON.parse(list);
+				if (res.length > 0) {
+					cargarTabla(res);
+					$('.alert-warning').remove();
+				} else {
+					msn('Lo sentimos', 'El cliente no tiene horarios configurados');
+					$('#tablaHorarios tbody').empty();
+				}
+			} else {
+				msn('Lo sentimos', 'El cliente no tiene horarios configurados');
+				$('#tablaHorarios tbody').empty();
 			}
 		} catch (e) {
-			$("#selCliente").attr('disabled', 'disabled');
+			console.log(e);
+			msn('Lo sentimos', 'Ocurrió un error consultando la información');
+			$('#tablaHorarios tbody').empty();
 		}
 	});
 };
@@ -88,7 +100,22 @@ var removeOptions = function (idSelect) {
 
 var cargarTabla = function(jsonData) {
 	var fila;
-	$('#tbody').empty();
+	$('#tablaHorarios tbody').empty();
+	for (var i = 0; i < jsonData.length; i++) {
+		fila = '<tr>'
+			+ '<td>' + jsonData[i].id + '</td>'
+			+ '<td>' + jsonData[i].fecha_inicio + '</td>'
+			+ '<td>' + jsonData[i].fecha_fin + '</td>'
+			+ '<td><input type="radio" name="rbHorario" value="' + jsonData[i].id + '"></td>'
+			+ '</tr>';
+
+		$('#tablaHorarios tbody').append(fila);
+	}
+};
+
+var cargarTablaDetalleHorario = function(jsonData){
+	var fila;
+	$('#tablaHorarios tbody').empty();
 	for (var i = 0; i < jsonData.length; i++) {
 		var array = jsonData[i].dias.split("");
 		if (array[i] == "1") {
@@ -102,5 +129,5 @@ var cargarTabla = function(jsonData) {
 		+ '<td>' + jsonData[i].fin + '</td>'
 		+ '<td><input type="radio" name="rbHorario" value="' + jsonData[i].id + '"></td>'
 		+ '</tr>';
-	$('#tbody').append(fila);
+	$('#tablaHorarios tbody').append(fila);
 };

@@ -2,6 +2,7 @@
 class ModeloMalla {
 	private $id;
 	private $idCliente;
+	private $idHorarioCliente;
 	private $cantAnalistas;
 	private $cantBackups;
 	private $horasSemanales;
@@ -13,6 +14,7 @@ class ModeloMalla {
 	public function ModeloMalla() {
 		$this->id = null;
 		$this->idCliente = null;
+		$this->idHorarioCliente = null;
 		$this->cantAnalistas = null;
 		$this->cantBackups = null;
 		$this->horasSemanales = null;
@@ -26,6 +28,7 @@ class ModeloMalla {
 								$horaInicioAlmuerzo,$horaFinAlmuerzo,$activo) {
 		$this->id = $id;
 		$this->idCliente = $idCliente;
+		$this->idHorarioCliente = $idHorarioCliente;
 		$this->cantAnalistas = $cantAnalistas;
 		$this->cantBackups = $cantBackups;
 		$this->horasSemanales = $horasSemanales;
@@ -48,6 +51,14 @@ class ModeloMalla {
 	}
 	
 	public function getIdCliente () {
+		return $this->idCliente;
+	}
+	
+	public function setIdHorarioCliente ($id) {
+		$this->id = $id;
+	}
+	
+	public function getIdHorarioCliente () {
 		return $this->idCliente;
 	}
 	
@@ -102,7 +113,7 @@ class ModeloMalla {
 		$this->activo = $activo;
 	}
 	
-	public function isActivo () {
+	public function getActivo () {
 		return $this->activo;
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 include_once '../ENTITIES/Cliente.php';
-include_once '../DAOS/DaoCliente.php';
+include_once '../DAOS/DaoHorarioCliente.php';
 
 if (isset ( $_GET ['consultar'] )) {
 	header ( 'Content-type: application/json; charset=utf-8' );

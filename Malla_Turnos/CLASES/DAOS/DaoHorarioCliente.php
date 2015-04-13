@@ -42,7 +42,7 @@ class DaoHorarioCliente {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
 		if ($conn != null) {
-			$sql = "SELECT * FROM horario_cliente WHERE id_cliente=? AND fecha_inicio>=CURDATE();";
+			$sql = "SELECT * FROM horario_cliente WHERE id_cliente=? AND fecha_inicio>=CURDATE() AND activo=1 ORDER BY id DESC;";
 			
 			if ($stmt = $conn->prepare ( $sql ) ) {
 				$stmt->bind_param ( "i", $idCliente );
@@ -52,9 +52,8 @@ class DaoHorarioCliente {
 				$campos = array (
 						0 => 'id',
 						1 => 'id_cliente',
-						2 => 'fehca_inicio',
-						3 => 'fecha_fin',
-						4 => 'activo' 
+						2 => 'fecha_inicio',
+						3 => 'fecha_fin'
 				);
 				return ConvertirJson::toJSON ( $campos, $result->fetch_all ( MYSQLI_ASSOC ) );
 			}
