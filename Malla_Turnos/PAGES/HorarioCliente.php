@@ -33,7 +33,7 @@
 		<form id="form_HrCliente"
 			style="width: 90%; margin: 0 auto; margin-top: 20px;">
 			<input type="hidden" id="txtId" name="txtId" /> <input type="hidden"
-				id="txtIdCliente" name="txtIdCliente"
+				id="txtIdHrCliente" name="txtIdHrCliente"
 				value="<?php echo $_GET['cliente'];?>" />
 			<div class="panel panel-primary">
 				<div class="panel-heading">

@@ -4,6 +4,10 @@ var arrayHorarios = new Array();
 var contChecks = 0;
 var msgCarga = true;
 
+/**
+ * Funciones para la activación del validatioEngine en los campos de los formularios
+ *  #form_HrCliente y #form_modal
+ */
 $(document).ready(function() {
 	consultarHorario();
 	$("#form_HrCliente").validationEngine('attach', {
@@ -30,54 +34,21 @@ $(document).on('click', '#btnGuardar', function() {
 	alert($("#form_HrCliente").validationEngine('validate'));
 });
 
-var cargarSelect = function(idSelect, jsonArr) {
-	var html = "<option value=''>-- Seleccione --</option>";
-	for (var i = 0; i < jsonArr.length; i++) {
-		html = html + "<option value=" + jsonArr[i].id + ">" + jsonArr[i].sigla
-				+ "</option>";
-	}
-	$(idSelect).html('');
-	$(idSelect).html(html);
-};
-
-//var cargarTabla = function(jsonData) {
-//	var fila, i = 1;
-//	dataList = [];
-//	$('#tbody').empty();
-//	for (i = 0; i < jsonData.length; i++) {
-//		fila = '<tr>'
-//				+ '<td>'
-//				+ jsonData[i].id
-//				+ '</td>'
-//				+ '<td>'
-//				+ jsonData[i].nombre
-//				+ '</td>'
-//				+ '<td>'
-//				+ jsonData[i].nit
-//				+ '</td>'
-//				+ '<td> <a onclick="detalle('
-//				+ i
-//				+ ')"><button type="button" class="btn btn-default" aria-label="Editar">'
-//				+ '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>'
-//				+ '</tr>';
-//		$('#tbody').append(fila);
-//		dataList.push(jsonData[i]);
-//	}
-//};
-
-var consultarHorario = function() {
-
-};
-
+/**
+ * Función encargada de asignar los valores de una fila de la tabla en los
+ * campos correspondientes y así poder editarlos.
+ */
 var detalle = function(pos) {
-	var cliente = dataList[pos];
-	$("#txtId").val(cliente.id);
-	$("#txtNombre").val(cliente.nombre);
-	$("#txtNit").val(cliente.nit);
-	$("#selLinServ").val(cliente.id_linea_servicio);
-	$("#chkActivo").prop("checked", cliente.activo == "0" ? false : true);
-	$("#txtNombre").focus();
-	$("#btnHorario").prop("disabled", false);
+	var hrcliente = arrayHorarios[pos];
+	$("#txtInicio").val(hrcliente.inicio);
+	$("#txtFin").val(hrcliente.fin);
+	alert(hrcliente.dias);
+	for (var i = 1; i <= 7; i++) {
+		var caracter = hrcliente.dias.charAt(i-1);
+		if (caracter != 0) {
+			$("#dia"+i).prop('checked',true);
+		}
+	}
 };
 
 var limpiar = function() {
@@ -89,6 +60,12 @@ var limpiar = function() {
 	$("#txtNombre").focus();
 	$("#btnHorario").prop("disabled", true);
 };
+
+
+function limpiarModal(){
+	
+}
+
 
 $(document).on('click', '#btnAgregar', function() {
 	if ($("#form_modal").validationEngine('validate') != false) {
