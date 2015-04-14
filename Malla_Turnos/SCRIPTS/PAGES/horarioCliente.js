@@ -23,7 +23,6 @@ $(document).ready(function() {
 	});
 });
 
-
 $(document).on('click', '#btnLimpiar', function() {
 	limpiar();
 });
@@ -38,6 +37,44 @@ function consultarHorario(){
 
 $(document).on('click', '#btnGuardar', function() {
 	alert($("#form_HrCliente").validationEngine('validate'));
+});
+
+
+$(document).on('click', '#btnEditarHr', function() {
+	if ($("#form_modal").validationEngine('validate') != false) {
+		var hrCliente = arrayHorarios[posEdit];
+		var dias = "";
+		hrCliente.inicio = document.getElementById("txtInicio").value;
+		hrCliente.fin = document.getElementById("txtFin").value;
+		
+		for (var int = 1; int <= hrCliente.length; int++) {
+			var caracter = hrCliente.dias.charAt(int-1);
+		}
+		
+		
+		
+		for (var int = 1; int <= 7; int++) {
+			if (document.getElementById('dia' + int).disabled != true) {
+				if (document.getElementById('dia' + int).checked) {
+					dias += "1";
+					$("#dia"+int).attr('disabled','disabled');
+					$("#dia"+int).removeAttr('checked');
+					contChecks += 1;
+				} else {
+					dias += "0";
+					contChecks -= 1;
+					$("#dia"+int).removeAttr('disabled');
+					$("#dia"+int).removeAttr('checked');
+				}				
+			}else{
+				dias += "0";
+			}
+		}
+		alert(dias);
+		hrCliente.dias = dias;
+		validarChecks();
+		cargarTabla(arrayHorarios);
+	}
 });
 
 
@@ -136,6 +173,7 @@ $(document).on('click', '#btnAgregar', function() {
 				dias += "0";
 			}
 		}
+		validarChecks();
 		objHorario.dias = dias;
 		arrayHorarios.push(objHorario);
 		cargarTabla(arrayHorarios);
@@ -156,7 +194,10 @@ var cargarTabla = function(jsonData) {
                 + '<td>' + jsonData[i].inicio + '</td>'
                 + '<td>' + jsonData[i].fin + '</td>'
                 + '<td> <a onclick="detalle(' + i + ')"><button type="button" class="btn btn-default" aria-label="Editar">'
-                + '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>'
+                + '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a>'
+                + '<a onclick="eliminarRegistro(' + i + ')"><button type="button" class="btn btn-default" aria-label="Borrar">'
+                + '<i class="glyphicon glyphicon-erase" aria-hidden="true"></i></button></a>'
+                + '</td>'
                 + '</tr>';
         $('#tbodyHr').append(fila);
         dataList.push(jsonData[i]);
@@ -194,10 +235,44 @@ function getDias(dias){
  * de ser así se bloquea el botón "Agregar".
  */
 function validarChecks(){
-	if (contChecks >= 5) {
-		alert(contChecks);
+	if (contChecks >= 7) {
 		$("#btnAgregar").attr('disabled','disabled');
+	}else{
+		document.getElementById('btnEditarHr').style.display = "none";
+		document.getElementById('btnAgregar').style.display = "hidden";
+		$("#btnAgregar").removeAttr('disabled');
 	}
+}
+
+/**
+ * 
+ */
+function blockCheck(){
+	for (var i = 1; i <= 7; i++) {
+		$("#dia"+i).prop('disabled',true);
+	}
+}
+
+/**
+ * Función encargada de eliminar el registro seleccionado en la tabla de horarios.
+ * Con la posición que recibe, se recorre el array de horarios para poder 
+ * habilitar los checks que tenga en 1 y se prosigue con la eliminación del 
+ * registro.
+ * 
+ * @param pos	Posición del registro a eliminar
+ */
+function eliminarRegistro(pos){
+	var hrCliente = arrayHorarios[pos];
+	for (var int = 1; int <= hrCliente.dias.length; int++) {
+		var caracter = hrCliente.dias.charAt(int-1);
+		if (caracter == "1") {
+			$("#dia"+ int ).removeAttr('disabled');
+			contChecks -= 1;
+		}
+	}
+	arrayHorarios.splice(pos,1);
+	validarChecks();
+	cargarTabla(arrayHorarios);
 }
 
 
@@ -220,3 +295,4 @@ function blockCheck(){
 // });
 // });
 
+ 
