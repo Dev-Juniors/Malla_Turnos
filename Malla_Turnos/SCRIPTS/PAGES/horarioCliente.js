@@ -23,6 +23,7 @@ $(document).ready(function() {
 	});
 });
 
+
 $(document).on('click', '#btnLimpiar', function() {
 	limpiar();
 });
