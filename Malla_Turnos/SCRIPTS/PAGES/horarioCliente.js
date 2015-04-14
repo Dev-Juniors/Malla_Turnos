@@ -47,29 +47,47 @@ $(document).on('click', '#btnEditarHr', function() {
 		hrCliente.inicio = document.getElementById("txtInicio").value;
 		hrCliente.fin = document.getElementById("txtFin").value;
 		
-		for (var int = 1; int <= hrCliente.length; int++) {
+		for (var int = 1; int <= hrCliente.dias.length; int++) {
 			var caracter = hrCliente.dias.charAt(int-1);
-		}
-		
-		
-		
-		for (var int = 1; int <= 7; int++) {
-			if (document.getElementById('dia' + int).disabled != true) {
-				if (document.getElementById('dia' + int).checked) {
-					dias += "1";
-					$("#dia"+int).attr('disabled','disabled');
-					$("#dia"+int).removeAttr('checked');
-					contChecks += 1;
-				} else {
+			if (caracter == "1") {
+				if (document.getElementById('dia' + int).disabled != true) {
+					if (document.getElementById('dia' + int).checked) {
+						dias += "1";
+						$("#dia"+int).attr('disabled','disabled');
+						$("#dia"+int).removeAttr('checked');
+						contChecks += 1;
+					} else {
+						dias += "0";
+						contChecks -= 1;
+						$("#dia"+int).removeAttr('disabled');
+						$("#dia"+int).removeAttr('checked');
+					}				
+				}else{
 					dias += "0";
-					contChecks -= 1;
-					$("#dia"+int).removeAttr('disabled');
-					$("#dia"+int).removeAttr('checked');
-				}				
-			}else{
-				dias += "0";
+				}
 			}
 		}
+//		
+//
+		
+		
+//		for (var int = 1; int <= 7; int++) {
+//			if (document.getElementById('dia' + int).disabled != true) {
+//				if (document.getElementById('dia' + int).checked) {
+//					dias += "1";
+//					$("#dia"+int).attr('disabled','disabled');
+//					$("#dia"+int).removeAttr('checked');
+//					contChecks += 1;
+//				} else {
+//					dias += "0";
+//					contChecks -= 1;
+//					$("#dia"+int).removeAttr('disabled');
+//					$("#dia"+int).removeAttr('checked');
+//				}				
+//			}else{
+//				dias += "0";
+//			}
+//		}
 		alert(dias);
 		hrCliente.dias = dias;
 		validarChecks();
