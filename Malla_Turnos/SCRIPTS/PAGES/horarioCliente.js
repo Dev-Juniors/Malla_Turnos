@@ -65,12 +65,24 @@ $(document).on('click', '#btnEditarHr', function() {
 				}else{
 					dias += "0";
 				}
+			}else{
+				contChecks -= 1;
+				dias += "0";
 			}
 		}
-//		
+		hrCliente.dias = dias;
+		validarChecks();
+		cargarTabla(arrayHorarios);
+	}
+});
+
 //
-		
-		
+//$(document).on('click', '#btnEditarHr', function() {
+//	if ($("#form_modal").validationEngine('validate') != false) {
+//		var hrCliente = arrayHorarios[posEdit];
+//		var dias = "";
+//		hrCliente.inicio = document.getElementById("txtInicio").value;
+//		hrCliente.fin = document.getElementById("txtFin").value;
 //		for (var int = 1; int <= 7; int++) {
 //			if (document.getElementById('dia' + int).disabled != true) {
 //				if (document.getElementById('dia' + int).checked) {
@@ -84,43 +96,12 @@ $(document).on('click', '#btnEditarHr', function() {
 //					$("#dia"+int).removeAttr('disabled');
 //					$("#dia"+int).removeAttr('checked');
 //				}				
-//			}else{
-//				dias += "0";
 //			}
 //		}
-		alert(dias);
-		hrCliente.dias = dias;
-		validarChecks();
-		cargarTabla(arrayHorarios);
-	}
-});
-
-
-$(document).on('click', '#btnEditarHr', function() {
-	if ($("#form_modal").validationEngine('validate') != false) {
-		var hrCliente = arrayHorarios[posEdit];
-		var dias = "";
-		hrCliente.inicio = document.getElementById("txtInicio").value;
-		hrCliente.fin = document.getElementById("txtFin").value;
-		for (var int = 1; int <= 7; int++) {
-			if (document.getElementById('dia' + int).disabled != true) {
-				if (document.getElementById('dia' + int).checked) {
-					dias += "1";
-					$("#dia"+int).attr('disabled','disabled');
-					$("#dia"+int).removeAttr('checked');
-					contChecks += 1;
-				} else {
-					dias += "0";
-					contChecks -= 1;
-					$("#dia"+int).removeAttr('disabled');
-					$("#dia"+int).removeAttr('checked');
-				}				
-			}
-		}
-		hrCliente.dias = dias;
-		cargarTabla(arrayHorarios);
-	}
-});
+//		hrCliente.dias = dias;
+//		cargarTabla(arrayHorarios);
+//	}
+//});
 
 
 
