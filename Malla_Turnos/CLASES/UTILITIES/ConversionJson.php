@@ -6,7 +6,7 @@ class ConvertirJson {
 			foreach ( $array as $row ) {
 				$string .= "{";
 				foreach ( $campos as $campo ) {
-					$string .= '"' . $campo . '":"' . $row [$campo] . '",';
+					$string .= '"' . $campo . '":"' . utf8_encode($row [$campo]) . '",';
 				}
 				$string = substr ( $string, 0, strlen ( $string ) - 1 );
 				$string .= "},";

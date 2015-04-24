@@ -25,34 +25,6 @@ USE `malla_turnos`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE IF NOT EXISTS `cliente` (
-`id` int(11) NOT NULL,
-  `activo` int(1) NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `nit` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `id_linea_servicio` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Truncar tablas antes de insertar `cliente`
---
-
-TRUNCATE TABLE `cliente`;
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`id`, `activo`, `nombre`, `nit`, `id_linea_servicio`) VALUES
-(1, 1, 'Nutresa', '45878455', 1),
-(2, 1, 'Nutresa', '34634563', 1),
-(5, 1, 'asdf', '234', 1);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `concurrencia_malla`
 --
 
@@ -131,6 +103,34 @@ TRUNCATE TABLE `linea_servicio`;
 
 INSERT INTO `linea_servicio` (`id`, `sigla`, `descripcion`) VALUES
 (1, 'DSI', 'Desarrollo Informático Especializado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente`
+--
+
+CREATE TABLE IF NOT EXISTS `cliente` (
+`id` int(11) NOT NULL,
+  `activo` int(1) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `nit` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `id_linea_servicio` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Truncar tablas antes de insertar `cliente`
+--
+
+TRUNCATE TABLE `cliente`;
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `activo`, `nombre`, `nit`, `id_linea_servicio`) VALUES
+(1, 1, 'Nutresa', '45878455', 1),
+(2, 1, 'Nutresa', '34634563', 1),
+(5, 1, 'asdf', '234', 1);
 
 -- --------------------------------------------------------
 

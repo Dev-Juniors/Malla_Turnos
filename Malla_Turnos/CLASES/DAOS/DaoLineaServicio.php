@@ -7,7 +7,8 @@ class DaoLineaServicio {
 	public function DaoLineaServicio($lineaServicio) {
 		$this->lineaServicio = $lineaServicio;
 	}
-	public function guardar() {
+	public function guardar() { 
+		echo $this->lineaServicio->getDescripcion ();
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
 		if ($conn != null) {
