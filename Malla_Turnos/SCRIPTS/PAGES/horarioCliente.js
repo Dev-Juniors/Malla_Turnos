@@ -31,12 +31,34 @@ $(document).on('click', '#btnHorario', function() {
 
 });
 
+
+var detalle = function(pos) {
+	$('#form_HrCliente').validationEngine('hideAll');
+    var hrcliente = dataList[pos];
+    $("#txtId").val(hrcliente.id);
+    $("#txtDesde").val(hrcliente.fecha_inicio);
+    $("#txtHasta").val(hrcliente.fecha_fin);
+    $("#btnHorario").prop("disabled",false);
+};
+
+
 function consultarHorario(){
 	
 }
 
 $(document).on('click', '#btnGuardar', function() {
-	alert($("#form_HrCliente").validationEngine('validate'));
+	if ($("#form_HrCliente").validationEngine('validate')) {
+		msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
+		$.post('../CLASES/CONTROLLERS/ControllerHorarioCliente.php', $("#form_HrCliente").serialize() + "&btnGuardar=1", function(resp) {
+			if (resp == '-1') {
+				msn('Error', 'Lo sentimos, no fue posible almacenar la información');
+			} else {
+				msn('Listo', 'La información se almacenanó correctamente');
+				limpiar();
+				$("#btnConsultar").click();
+			}
+		});
+	}
 });
 
 
@@ -76,40 +98,11 @@ $(document).on('click', '#btnEditarHr', function() {
 	}
 });
 
-//
-// $(document).on('click', '#btnEditarHr', function() {
-// if ($("#form_modal").validationEngine('validate') != false) {
-// var hrCliente = arrayHorarios[posEdit];
-// var dias = "";
-// hrCliente.inicio = document.getElementById("txtInicio").value;
-// hrCliente.fin = document.getElementById("txtFin").value;
-// for (var int = 1; int <= 7; int++) {
-// if (document.getElementById('dia' + int).disabled != true) {
-// if (document.getElementById('dia' + int).checked) {
-// dias += "1";
-// $("#dia"+int).attr('disabled','disabled');
-// $("#dia"+int).removeAttr('checked');
-// contChecks += 1;
-// } else {
-// dias += "0";
-// contChecks -= 1;
-// $("#dia"+int).removeAttr('disabled');
-// $("#dia"+int).removeAttr('checked');
-// }
-// }
-// }
-// hrCliente.dias = dias;
-// cargarTabla(arrayHorarios);
-// }
-// });
-
-
-
 /**
  * Función encargada de asignar los valores de una fila de la tabla en los
  * campos correspondientes y así poder editarlos.
  */
-var detalle = function(pos) {
+var detalleH = function(pos) {
 	posEdit = pos;
 	limpiarModal();
 	blockCheck();
@@ -157,9 +150,11 @@ $(document).on('click', '#btnAgregar', function() {
 	if ($("#form_modal").validationEngine('validate') != false) {
 		var objHorario = new Object();
 		var dias = "";
-		var fin = document.getElementById("txtFin").value;
+		var idHrCliente = document.getElementById("txtId").value;
 		var inicio = document.getElementById("txtInicio").value;
+		var fin = document.getElementById("txtFin").value;
 		validarChecks();
+		objHorario.idHrCliente = idHrCliente;
 		objHorario.inicio = inicio;
 		objHorario.fin = fin;
 		for (var int = 1; int <= 7; int++) {
@@ -176,7 +171,6 @@ $(document).on('click', '#btnAgregar', function() {
 		objHorario.dias = dias;
 		arrayHorarios.push(objHorario);
 		cargarTabla(arrayHorarios);
-// var jsonArray = JSON.parse(JSON.stringify(arrayHorarios));
 	}
 });
 
@@ -193,7 +187,7 @@ var cargarTabla = function(jsonData) {
                 + '<td>' + getDias(jsonData[i].dias) + '</td>'
                 + '<td>' + jsonData[i].inicio + '</td>'
                 + '<td>' + jsonData[i].fin + '</td>'
-                + '<td> <a onclick="detalle(' + i + ')"><button type="button" class="btn btn-default" aria-label="Editar">'
+                + '<td> <a onclick="detalleH(' + i + ')"><button type="button" class="btn btn-default" aria-label="Editar">'
                 + '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a>'
                 + '<a onclick="eliminarRegistro(' + i + ')"><button type="button" class="btn btn-default" aria-label="Borrar">'
                 + '<i class="glyphicon glyphicon-erase" aria-hidden="true"></i></button></a>'
@@ -203,6 +197,46 @@ var cargarTabla = function(jsonData) {
         dataList.push(jsonData[i]);
     }
 };
+
+
+var cargarTablaH = function(jsonData) {
+    var fila, i = 1;
+    dataList = [];
+    $('#tbody').empty();
+    for (i = 0; i < jsonData.length; i++) {
+        fila = '<tr>'
+                + '<td>' + jsonData[i].id + '</td>'
+                + '<td>' + jsonData[i].fecha_inicio + '</td>'
+                + '<td>' + jsonData[i].fecha_fin + '</td>'
+                + '<td> <a onclick="detalle(' + i + ')"><button type="button" class="btn btn-default" aria-label="Editar">'
+                + '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>'
+                + '</tr>';
+        $('#tbody').append(fila);
+        dataList.push(jsonData[i]);
+    }
+};
+
+$(document).on('click', '#btnConsultar', function() {
+	$('#form_HrCliente').validationEngine('hideAll');
+	if (msgCarga) {
+		msn_load("Buscando", "Estamos consultando la información, por favor espere.");
+	}
+	var id_Cliente = document.getElementById("txtIdHrCliente").value;
+	$.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?consultar&idCliente='+id_Cliente+'&HrCliente' , function(resp) {
+		if (resp != "") {
+			var res = JSON.parse(resp);
+			cargarTablaH(res);
+			if (msgCarga) {
+				$('.alert-warning').remove();
+			}
+		} else {
+			msn('Error', 'No hay clientes registrados con los datos ingresados');
+			$('#tbody').empty();
+		}
+		msgCarga = true;
+	});
+});
+
 
 /**
  * Función que se encarga de retornar los nombres de los días que llegan como
@@ -286,7 +320,9 @@ function blockCheck(){
 
  $(document).on('click', '#btnGuardarHorario', function() {
 	 msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
- $.post('../CLASES/CONTROLLERS/ControllerHorarioCliente.php', $("#form_modal").serialize() + "&btnGuardarHorario=1", function(resp) {
+//	 var jsonArray = JSON.parse(JSON.stringify(arrayHorarios));
+ $.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?btnGuardarHorario=1&detalleHorario='+arrayHorarios, function(resp) {
+	 alert(resp);
 	 if (resp == '-1') {
 		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
 		 } else {
@@ -295,4 +331,8 @@ function blockCheck(){
  });
 });
 
- 
+function limpiar(){
+	document.getElementById("txtFin").value = "0000-00-00";
+	document.getElementById("txtInicio").value = "0000-00-00";
+	document.getElementById("txtId").value = '';
+}

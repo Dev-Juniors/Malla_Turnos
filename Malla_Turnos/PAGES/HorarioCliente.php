@@ -69,8 +69,9 @@
 				</div>
 			</div>
 			<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
+			<button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
 			<button type="button" id="btnLimpiar" class="btn btn-primary">Limpiar</button>
-			<button type="button" id="btnHorario" class="btn btn-primary"
+			<button type="button" id="btnHorario" class="btn btn-primary" disabled="disabled"
 				data-toggle="modal" data-target="#modalHorario">Detalle Horario</button>
 			<br /> <br />
 			<div class="panel panel-primary">
