@@ -5,8 +5,8 @@ var contChecks = 0;
 var msgCarga = true;
 var posEdit = -1;
 /**
- * Funciones para la activación del validatioEngine en los campos de los formularios
- *  #form_HrCliente y #form_modal
+ * Funciones para la activación del validatioEngine en los campos de los
+ * formularios #form_HrCliente y #form_modal
  */
 $(document).ready(function() {
 	consultarHorario();
@@ -77,31 +77,31 @@ $(document).on('click', '#btnEditarHr', function() {
 });
 
 //
-//$(document).on('click', '#btnEditarHr', function() {
-//	if ($("#form_modal").validationEngine('validate') != false) {
-//		var hrCliente = arrayHorarios[posEdit];
-//		var dias = "";
-//		hrCliente.inicio = document.getElementById("txtInicio").value;
-//		hrCliente.fin = document.getElementById("txtFin").value;
-//		for (var int = 1; int <= 7; int++) {
-//			if (document.getElementById('dia' + int).disabled != true) {
-//				if (document.getElementById('dia' + int).checked) {
-//					dias += "1";
-//					$("#dia"+int).attr('disabled','disabled');
-//					$("#dia"+int).removeAttr('checked');
-//					contChecks += 1;
-//				} else {
-//					dias += "0";
-//					contChecks -= 1;
-//					$("#dia"+int).removeAttr('disabled');
-//					$("#dia"+int).removeAttr('checked');
-//				}				
-//			}
-//		}
-//		hrCliente.dias = dias;
-//		cargarTabla(arrayHorarios);
-//	}
-//});
+// $(document).on('click', '#btnEditarHr', function() {
+// if ($("#form_modal").validationEngine('validate') != false) {
+// var hrCliente = arrayHorarios[posEdit];
+// var dias = "";
+// hrCliente.inicio = document.getElementById("txtInicio").value;
+// hrCliente.fin = document.getElementById("txtFin").value;
+// for (var int = 1; int <= 7; int++) {
+// if (document.getElementById('dia' + int).disabled != true) {
+// if (document.getElementById('dia' + int).checked) {
+// dias += "1";
+// $("#dia"+int).attr('disabled','disabled');
+// $("#dia"+int).removeAttr('checked');
+// contChecks += 1;
+// } else {
+// dias += "0";
+// contChecks -= 1;
+// $("#dia"+int).removeAttr('disabled');
+// $("#dia"+int).removeAttr('checked');
+// }
+// }
+// }
+// hrCliente.dias = dias;
+// cargarTabla(arrayHorarios);
+// }
+// });
 
 
 
@@ -150,8 +150,8 @@ function limpiarModal(){
 }
 
 /**
- *  Función que se encarga de agregar en el array "arrayHorarios", las horas de inicio y fin
- *  y los días seleccionados en el modal.
+ * Función que se encarga de agregar en el array "arrayHorarios", las horas de
+ * inicio y fin y los días seleccionados en el modal.
  */
 $(document).on('click', '#btnAgregar', function() {
 	if ($("#form_modal").validationEngine('validate') != false) {
@@ -181,7 +181,8 @@ $(document).on('click', '#btnAgregar', function() {
 });
 
 /**
- * Función que llena la tabla de horarios con los registros que tenga el array "arrayHorarios"
+ * Función que llena la tabla de horarios con los registros que tenga el array
+ * "arrayHorarios"
  */
 var cargarTabla = function(jsonData) {
     var fila, i = 1;
@@ -204,11 +205,12 @@ var cargarTabla = function(jsonData) {
 };
 
 /**
- * Función que se encarga de retornar los nombres de los días 
- * que llegan como parámetros.
+ * Función que se encarga de retornar los nombres de los días que llegan como
+ * parámetros.
  * 
- * @param dias			String con los días
- * @returns {String}	String con los nombres de los días
+ * @param dias
+ *            String con los días
+ * @returns {String} String con los nombres de los días
  */
 function getDias(dias){
 	var cadena="";
@@ -230,8 +232,8 @@ function getDias(dias){
 }
 
 /**
- * Función que valida si ya han seleccionado todos los checks
- * de ser así se bloquea el botón "Agregar".
+ * Función que valida si ya han seleccionado todos los checks de ser así se
+ * bloquea el botón "Agregar".
  */
 function validarChecks(){
 	if (contChecks >= 7) {
@@ -253,12 +255,13 @@ function blockCheck(){
 }
 
 /**
- * Función encargada de eliminar el registro seleccionado en la tabla de horarios.
- * Con la posición que recibe, se recorre el array de horarios para poder 
- * habilitar los checks que tenga en 1 y se prosigue con la eliminación del 
- * registro.
+ * Función encargada de eliminar el registro seleccionado en la tabla de
+ * horarios. Con la posición que recibe, se recorre el array de horarios para
+ * poder habilitar los checks que tenga en 1 y se prosigue con la eliminación
+ * del registro.
  * 
- * @param pos	Posición del registro a eliminar
+ * @param pos
+ *            Posición del registro a eliminar
  */
 function eliminarRegistro(pos){
 	var hrCliente = arrayHorarios[pos];
@@ -281,17 +284,15 @@ function blockCheck(){
 	}
 }
 
-// $(document).on('click', '#btnGuardarHorario', function() {
-// msn_load("Guardando", "Estamos almacenando la información, por favor
-// espere.");
-// $.post('../CLASES/CONTROLLERS/ControllerCliente.php',
-// $("#form_modal").serialize() + "&btnGuardarHorario=1", function(resp) {
-// if (resp == '-1') {
-// msn('Error', 'Lo sentimos, no fue posible almacenar la información');
-// } else {
-// msn('Listo', 'La información se almacenanó correctamente');
-// }
-// });
-// });
+ $(document).on('click', '#btnGuardarHorario', function() {
+	 msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
+ $.post('../CLASES/CONTROLLERS/ControllerHorarioCliente.php', $("#form_modal").serialize() + "&btnGuardarHorario=1", function(resp) {
+	 if (resp == '-1') {
+		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
+		 } else {
+		 msn('Listo', 'La información se almacenanó correctamente');
+	}
+ });
+});
 
  

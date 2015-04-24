@@ -30,4 +30,11 @@ if (isset ( $_POST ['btnGuardar'] )) {
 	
 // 	echo $id;
 }
+
+
+if (isset($_POST['btnGuardarHorario'])) {
+	;
+}
+
+
 ?>
