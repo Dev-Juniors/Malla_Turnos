@@ -321,18 +321,40 @@ function blockCheck(){
  $(document).on('click', '#btnGuardarHorario', function() {
 	 msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
 //	 var jsonArray = JSON.parse(JSON.stringify(arrayHorarios));
- $.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?btnGuardarHorario=1&detalleHorario='+arrayHorarios, function(resp) {
-	 alert(resp);
-	 if (resp == '-1') {
-		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
-		 } else {
-		 msn('Listo', 'La información se almacenanó correctamente');
-	}
- });
+	 var jsonArray = JSON.stringify(arrayHorarios);
+	 $.ajax({
+         type:'get',
+          cache:false,
+          url:"../CLASES/CONTROLLERS/ControllerHorarioCliente.php",
+         data:{detalleHorario:  jsonArray, btnGuardarHorario: 1},
+         success:function(resp){
+         alert(resp+"sadadasdasdasda");//cuando reciva la respuesta lo imprimo
+    	 if (resp == '-1') {
+    		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
+    		 } else {
+    		 msn('Listo', 'La información se almacenanó correctamente');
+    	 }
+            }
+	 });
+	 
+	 
+	 
+// $.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?btnGuardarHorario=1&detalleHorario='+jsonArray, function(resp) {
+//	 alert(resp);
+//	 if (resp == '-1') {
+//		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
+//		 } else {
+//		 msn('Listo', 'La información se almacenanó correctamente');
+//	}
+// });
 });
 
 function limpiar(){
 	document.getElementById("txtFin").value = "0000-00-00";
 	document.getElementById("txtInicio").value = "0000-00-00";
 	document.getElementById("txtId").value = '';
+}
+
+function construirString(){
+	
 }

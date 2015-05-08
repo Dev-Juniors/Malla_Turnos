@@ -32,17 +32,22 @@ if (isset ( $_POST ['btnGuardar'] )) {
 
 if (isset ( $_GET ['btnGuardarHorario'] )) {
 	if (isset($_GET['detalleHorario'])) {
-		$detalleHorario = json_decode ( $_GET ['detalleHorario'] );
-		for ($i = 0; $i < count($detalleHorario) ; $i++) {
-			if ($detalleHorario.idHrCliente != '') {
-				$hCliente = new HorarioCliente ();
-				$hCliente->setId( $detalleHorario.idHrCliente );
-				$dao = new DaoHorarioCliente ( $hCliente );
-				$id = $dao->guardarDetalleHorario($detalleHorario.inicio, $detalleHorario.fin , $detalleHorario.dias);
-			}
+		$detalleHorario = json_decode( str_replace("\\", '', $_GET ['detalleHorario'] ));
+		for ($i = 0; $i < count($detalleHorario); $i++) {
+			echo $detalleHorario[$i].idHrCliente;
+// 			echo $detalleHorario[$i.idHrCliente];
 		}
+		
+// 		for ($i = 0; $i < count($detalleHorario) ; $i++) {
+// 			if ($detalleHorario.idHrCliente != '') {
+// 				$hCliente = new HorarioCliente ();
+// 				$hCliente->setId( $detalleHorario.idHrCliente );
+// 				$dao = new DaoHorarioCliente ( $hCliente );
+// 				$id = $dao->guardarDetalleHorario($detalleHorario.inicio, $detalleHorario.fin , $detalleHorario.dias);
+// 			}
+// 		}
 	}
-	echo $id;
+// 	echo $id;
 }
 
 ?>
