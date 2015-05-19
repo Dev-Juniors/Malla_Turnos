@@ -15,8 +15,8 @@
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/cliente.js"></script>
-<script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/animsitionActive.js"></script>
+<script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
 <style type="text/css">
 .required {
 	color: red;

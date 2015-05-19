@@ -328,7 +328,6 @@ function blockCheck(){
           url:"../CLASES/CONTROLLERS/ControllerHorarioCliente.php",
          data:{detalleHorario:  jsonArray, btnGuardarHorario: 1},
          success:function(resp){
-         alert(resp+"sadadasdasdasda");//cuando reciva la respuesta lo imprimo
     	 if (resp == '-1') {
     		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
     		 } else {

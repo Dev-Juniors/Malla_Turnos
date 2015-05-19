@@ -34,20 +34,14 @@ if (isset ( $_GET ['btnGuardarHorario'] )) {
 	if (isset($_GET['detalleHorario'])) {
 		$detalleHorario = json_decode( str_replace("\\", '', $_GET ['detalleHorario'] ));
 		for ($i = 0; $i < count($detalleHorario); $i++) {
-			echo $detalleHorario[$i].idHrCliente;
-// 			echo $detalleHorario[$i.idHrCliente];
+			$hCliente = new HorarioCliente ();
+			$hCliente->setId( $detalleHorario[$i]->idHrCliente );
+			echo $detalleHorario[$i]->idHrCliente;
+			$dao = new DaoHorarioCliente ( $hCliente );
+			$id = $dao->guardarDetalleHorario($detalleHorario[$i]->inicio, $detalleHorario[$i]->fin, $detalleHorario[$i]->dias);
 		}
-		
-// 		for ($i = 0; $i < count($detalleHorario) ; $i++) {
-// 			if ($detalleHorario.idHrCliente != '') {
-// 				$hCliente = new HorarioCliente ();
-// 				$hCliente->setId( $detalleHorario.idHrCliente );
-// 				$dao = new DaoHorarioCliente ( $hCliente );
-// 				$id = $dao->guardarDetalleHorario($detalleHorario.inicio, $detalleHorario.fin , $detalleHorario.dias);
-// 			}
-// 		}
 	}
-// 	echo $id;
+	echo $id;
 }
 
 ?>
