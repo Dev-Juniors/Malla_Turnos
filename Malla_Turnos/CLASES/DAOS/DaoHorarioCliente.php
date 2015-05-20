@@ -62,7 +62,6 @@ class DaoHorarioCliente {
 		$conn->close ();
 	}
 	
-	
 	public static function consultarTodo($idCliente) {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
@@ -86,7 +85,6 @@ class DaoHorarioCliente {
 		$conn->close ();
 	}
 	
-	
 	public function guardarDetalleHorario($inicio, $fin, $dias) {
 		$connClass = new Conexion ();
 		$conn = $connClass->getConection ();
@@ -103,7 +101,5 @@ class DaoHorarioCliente {
 		}
 		$conn->close ();
 	}
-	
-	
 }
 ?>

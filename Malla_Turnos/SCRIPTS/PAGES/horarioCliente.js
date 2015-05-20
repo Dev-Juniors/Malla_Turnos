@@ -320,7 +320,6 @@ function blockCheck(){
 
  $(document).on('click', '#btnGuardarHorario', function() {
 	 msn_load("Guardando", "Estamos almacenando la información, por favor espere.");
-//	 var jsonArray = JSON.parse(JSON.stringify(arrayHorarios));
 	 var jsonArray = JSON.stringify(arrayHorarios);
 	 $.ajax({
          type:'get',
@@ -335,17 +334,6 @@ function blockCheck(){
     	 }
             }
 	 });
-	 
-	 
-	 
-// $.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?btnGuardarHorario=1&detalleHorario='+jsonArray, function(resp) {
-//	 alert(resp);
-//	 if (resp == '-1') {
-//		 msn('Error', 'Lo sentimos, no fue posible almacenar la información');
-//		 } else {
-//		 msn('Listo', 'La información se almacenanó correctamente');
-//	}
-// });
 });
 
 function limpiar(){
