@@ -1,7 +1,5 @@
 $(document).ready(function() {
-  
   $(".animsition").animsition({
-  
     inClass               :   'fade-in-right',
     outClass              :   'fade-out-right',
     inDuration            :    1200,

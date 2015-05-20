@@ -4,12 +4,13 @@ var arrayHorarios = new Array();
 var contChecks = 0;
 var msgCarga = true;
 var posEdit = -1;
+var gv_idHrCliente = -1;
 /**
  * Funciones para la activación del validatioEngine en los campos de los
  * formularios #form_HrCliente y #form_modal
  */
 $(document).ready(function() {
-	consultarHorario();
+//	consultarDetalle();
 	document.getElementById('btnEditarHr').style.display = "none";
 	$("#form_HrCliente").validationEngine('attach', {
 		promptPosition : "bottomLeft",
@@ -35,6 +36,7 @@ $(document).on('click', '#btnHorario', function() {
 var detalle = function(pos) {
 	$('#form_HrCliente').validationEngine('hideAll');
     var hrcliente = dataList[pos];
+    consultarDetalle(hrcliente.id);
     $("#txtId").val(hrcliente.id);
     $("#txtDesde").val(hrcliente.fecha_inicio);
     $("#txtHasta").val(hrcliente.fecha_fin);
@@ -42,8 +44,20 @@ var detalle = function(pos) {
 };
 
 
-function consultarHorario(){
-	
+function consultarDetalle(idHrCliente){
+	$.get('../CLASES/CONTROLLERS/ControllerHorarioCliente.php?consultarDetalle&HrCliente='+idHrCliente, function(resp) {
+		if (resp != "") {
+			var res = JSON.parse(resp);
+			cargarTabla(res);
+			if (msgCarga) {
+				$('.alert-warning').remove();
+			}
+		} else {
+			msn('Error', 'No hay detalle de horarios registrados con los datos ingresados');
+			$('#tbody').empty();
+		}
+		msgCarga = true;
+	});
 }
 
 $(document).on('click', '#btnGuardar', function() {
@@ -185,8 +199,8 @@ var cargarTabla = function(jsonData) {
     for (i = 0; i < jsonData.length; i++) {
         fila = '<tr>'
                 + '<td>' + getDias(jsonData[i].dias) + '</td>'
-                + '<td>' + jsonData[i].inicio + '</td>'
-                + '<td>' + jsonData[i].fin + '</td>'
+                + '<td>' + jsonData[i].hora_inicio + '</td>'
+                + '<td>' + jsonData[i].hora_fin + '</td>'
                 + '<td> <a onclick="detalleH(' + i + ')"><button type="button" class="btn btn-default" aria-label="Editar">'
                 + '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a>'
                 + '<a onclick="eliminarRegistro(' + i + ')"><button type="button" class="btn btn-default" aria-label="Borrar">'
@@ -340,8 +354,4 @@ function limpiar(){
 	document.getElementById("txtFin").value = "0000-00-00";
 	document.getElementById("txtInicio").value = "0000-00-00";
 	document.getElementById("txtId").value = '';
-}
-
-function construirString(){
-	
 }

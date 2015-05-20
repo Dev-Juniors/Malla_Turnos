@@ -5,18 +5,19 @@
 <title>Clientes</title>
 <link rel="stylesheet" href="../STYLES/bootstrap.min.css" />
 <link rel="stylesheet" href="../STYLES/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
+<link rel="stylesheet" href="../STYLES/animsition.min.css" />
+
 <script type="text/javascript" src="../SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../STYLES/validationEngine.jquery.css" />
 <script type="text/javascript" src="../SCRIPTS/mensajes.js"></script>
-<link rel="stylesheet" href="../STYLES/animsition.min.css" />
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine-es.js"></script>
 <script type="text/javascript"
 	src="../SCRIPTS/ValidationEngine/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
 <script type="text/javascript" src="../SCRIPTS/PAGES/cliente.js"></script>
 <script type="text/javascript" src="../SCRIPTS/animsitionActive.js"></script>
-<script type="text/javascript" src="../SCRIPTS/jquery.animsition.min.js"></script>
 <style type="text/css">
 .required {
 	color: red;

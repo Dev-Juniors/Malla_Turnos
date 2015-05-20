@@ -31,17 +31,25 @@ if (isset ( $_POST ['btnGuardar'] )) {
 }
 
 if (isset ( $_GET ['btnGuardarHorario'] )) {
-	if (isset($_GET['detalleHorario'])) {
-		$detalleHorario = json_decode( str_replace("\\", '', $_GET ['detalleHorario'] ));
-		for ($i = 0; $i < count($detalleHorario); $i++) {
+	if (isset ( $_GET ['detalleHorario'] )) {
+		$detalleHorario = json_decode ( str_replace ( "\\", '', $_GET ['detalleHorario'] ) );
+		for($i = 0; $i < count ( $detalleHorario ); $i ++) {
 			$hCliente = new HorarioCliente ();
-			$hCliente->setId( $detalleHorario[$i]->idHrCliente );
-			echo $detalleHorario[$i]->idHrCliente;
+			$hCliente->setId ( $detalleHorario [$i]->idHrCliente );
+			echo $detalleHorario [$i]->idHrCliente;
 			$dao = new DaoHorarioCliente ( $hCliente );
-			$id = $dao->guardarDetalleHorario($detalleHorario[$i]->inicio, $detalleHorario[$i]->fin, $detalleHorario[$i]->dias);
+			$id = $dao->guardarDetalleHorario ( $detalleHorario [$i]->inicio, $detalleHorario [$i]->fin, $detalleHorario [$i]->dias );
 		}
 	}
 	echo $id;
+}
+
+if (isset ( $_GET ['consultarDetalle'] )) {
+	header ( 'Content-type: application/json; charset=utf-8' );
+	if (isset ( $_GET ['HrCliente'] )) {
+		$resp = DaoHorarioCliente::consultarDetalleHorario( $_GET ["HrCliente"] );
+	}
+	echo json_encode ( $resp );
 }
 
 ?>

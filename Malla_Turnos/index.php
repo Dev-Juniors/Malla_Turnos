@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="STYLES/index.css" />
 <script type="text/javascript" src="SCRIPTS/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="SCRIPTS/bootstrap.min.js"></script>
+<script type="text/javascript" src="SCRIPTS/jquery.animsition.min.js"></script>
+<script type="text/javascript" src="SCRIPTS/animsitionActive.js"></script>
 <title>Malla de Turnos - Flag Soluciones</title>
 </head>
 <body>
@@ -37,16 +39,16 @@
 
 						<li class="active"><a href="#"><i class="glyphicon glyphicon-user"></i>
 								Gestionar Usuarios</a></li>
-						<li><a target="contenido" href="PAGES/GenerarModelo.php"><i
+						<li><a target="contenido" class="animsition-link" href="PAGES/GenerarModelo.php"><i
 								class="glyphicon glyphicon-calendar"></i> Generar Modelo</a></li>
 						<li class="nav-header"><a href="#" data-toggle="collapse"
 							data-target="#config"> Configuración <i
 								class="glyphicon glyphicon-chevron-right"></i></a>
 							<ul class="nav nav-stacked collapse" id="config">
-								<li><a target="contenido" href="PAGES/LineaServicio.php"><i
+								<li><a target="contenido" class="animsition-link" href="PAGES/LineaServicio.php"><i
 										class="glyphicon glyphicon-menu-hamburger"></i> Línea de
 										Servicio</a></li>
-								<li><a target="contenido"  href="PAGES/Cliente.php"><i
+								<li><a target="contenido" class="animsition-link" href="PAGES/Cliente.php"><i
 										class="glyphicon glyphicon-globe"></i> Clientes</a></li>
 							</ul></li>
 					</ul>
